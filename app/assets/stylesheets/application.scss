@@ -1,0 +1,31 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+    overflow-x: hidden;
+ }
+
+ .center {
+    margin: auto;
+ }
+
+.navbar{
+ background-color: #006636;
+}
+
+.nav {
+    background-color: #006636;
+}
+
+.nav-sidebar{
+	
+    background-color: #006636;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    margin-top: 0px;
+
+}
