@@ -8,4 +8,13 @@
 
 
 School.create(name: "Aspit østjylland")
+
+
 Grade.create(name: "Ikke Tilknyttet klasse")
+
+Role.create(name: "Student")
+Role.create(name: "Teacher")
+Role.create(name: "Mentor")
+Role.create(name: "Admin")
+Role.create(name: "Super admin")
+
