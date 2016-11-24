@@ -8,3 +8,4 @@
 
 
 School.create(name: "Aspit østjylland")
+Grade.create(name: "Ikke Tilknyttet klasse")
