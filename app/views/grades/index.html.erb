@@ -16,9 +16,11 @@
       <tr>
         <td><%= grade.name %></td>
         <td><%= grade.school_id %></td>
-        <td><%= link_to 'Vis', grade, class: "btn btn-success" %></td>
-        <td><%= link_to 'Rediger', edit_grade_path(grade), class: "btn btn-success" %></td>
+        <tr>
+        <td><%= link_to 'Vis', grade, class: "btn btn-success" %>
+        <%= link_to 'Rediger', edit_grade_path(grade), class: "btn btn-success" %></td>
         <td><%= link_to 'Slet', grade, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success" %></td>
+        </tr>
       </tr>
     <% end %>
   </tbody>

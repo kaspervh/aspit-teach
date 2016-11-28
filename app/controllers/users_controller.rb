@@ -5,11 +5,19 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @school_students = current_user.school.students
+    @school_teachers = current_user.school.teachers
+    @school_mentors = current_user.school.mentors
+    @school_admins = current_user.school.admins
+    @grade_students = current_user.grade.students
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+    session[:user_id] = @user.id
+    redirect_to root_path
   end
 
   # GET /users/new

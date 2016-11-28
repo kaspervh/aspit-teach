@@ -9,6 +9,7 @@
   </head>
 
   <body>
+   
     <nav class="navbar navbar-default" role="navigation">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -25,10 +26,40 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           
-
+        <%if super_admin? %>
           <li><%=link_to "Skole", schools_path%></li>
           <li><%= link_to "Skole klasser", grades_path%></li>
-          <li><%= link_to "brugere", users_path%></li>
+          <li><%= link_to "Brugere", users_path%></li>
+
+
+          <li><%= link_to "skift bruger", current_user_index_path%></li>
+        <%end%>
+
+        <%if admin? %>
+          <li><%= link_to "Elever", users_path%></li>
+          <li><%= link_to "Skole klasser", grades_path%></li>
+
+
+          <li><%= link_to "skift bruger", current_user_index_path%></li>
+        <%end%>
+
+        <%if mentor? %>
+          <li><%= link_to "Elever", users_path%></li>
+
+
+          <li><%= link_to "skift bruger", current_user_index_path%></li>
+        <%end%>
+
+        <%if teacher? %>
+          <li><%= link_to "Elever", users_path%></li>
+
+
+
+          <li><%= link_to "skift bruger", current_user_index_path%></li>
+        <%end%>
+
+        <%if student? %>
+        <%end%>
           </li>
         </ul>
        
@@ -42,6 +73,7 @@
          
     <div class="container">
           <%= yield %>
+
     </div>
 
   </body>

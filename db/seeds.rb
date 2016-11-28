@@ -18,3 +18,8 @@ Role.create(name: "Mentor")
 Role.create(name: "Admin")
 Role.create(name: "Super admin")
 
+User.create(username: "kaspervh", email:"kaspervhauschildt@gmail.com", password_digest: "tvebakk1", school_id: 1, role_id: 5, grade_id: 1)
+User.create(username: "kalle", email:"kalle@gmail.com", password_digest: "tvebakk1", school_id: 1, role_id: 4, grade_id: 1)
+User.create(username: "kim", email: "kim@gmail.com", password_digest: "tvebakk1", school_id: 1, role_id: 2, grade_id: 1)
+User.create(username: "christian", email: "christian@gmail.com", password_digest: "tvebakk1", school_id: 1, role_id: 3, grade_id: 1)
+User.create(username: "keneth", email: "keneth@gmail.com", password_digest: "tvebakk1", school_id: 1, role_id: 1, grade_id: 1)
