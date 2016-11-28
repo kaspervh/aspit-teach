@@ -1,0 +1,5 @@
+<p id="notice"><%= notice %></p>
+
+<% @subject.instructions.each do |instruction|%>
+  <%=link_to instruction.name, instruction, class: "btn btn-success"%>
+<% end %>

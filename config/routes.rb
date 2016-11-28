@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'how_to/index'
+
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :instructions
+  resources :subjects
   resources :users
   resources :grades
   resources :schools

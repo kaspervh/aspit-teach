@@ -1,0 +1,35 @@
+<%= form_for(instruction) do |f| %>
+  <% if instruction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(instruction.errors.count, "error") %> prohibited this instruction from being saved:</h2>
+
+      <ul>
+      <% instruction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Emne %>
+    <br>
+    <%= f.collection_select :subject_id, @subjects, :id, :name%>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :Navn %>
+    <br>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :Indhold %>
+    <br>
+    <%= f.cktext_area :content %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
