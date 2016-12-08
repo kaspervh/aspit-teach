@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Navn %>
+    <strong><%= f.label :Navn %></strong>
     <br>
     <%= f.text_field :name %>
   </div>
   <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Gem", class: "btn btn-secondary" %>
   </div>
 <% end %>
 <br

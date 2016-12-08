@@ -1,31 +1,7 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
-body {
-    overflow-x: hidden;
- }
-
- .center {
-    margin: auto;
- }
-
-.navbar{
- background-color: #006636;
-}
-
-.nav {
-    background-color: #006636;
-}
-
-.nav-sidebar{
-	
-    background-color: #006636;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-.dropdown-menu {
-    margin-top: 0px;
-
+.fa-check-square-o {
+  height: 50px;
+  with: 50px;
 }

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
 
 <% @subject.instructions.each do |instruction|%>
-  <%=link_to instruction.name, instruction, class: "btn btn-success"%>
+  <%=link_to instruction.name.upcase, instruction, class: "btn btn-secondary"%>
 <% end %>

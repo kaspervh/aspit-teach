@@ -18,4 +18,6 @@ class School < ApplicationRecord
   def admins
     users.joins(:role).where(roles: {name: "Admin"})
   end
+
+  
 end

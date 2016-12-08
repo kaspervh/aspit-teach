@@ -1,25 +1,30 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :current_user
 
   def current_user 
+    ap "Application_controller#current_user"
     if user_id = session[:user_id]
-      User.find(user_id)
+      ap user_id
+    @current_user ||= User.joins(:role).find(user_id)
+
     else 
-      User.first
+    @current_user ||=  User.first
     end
+    @current_user_name = @current_user.role.name.downcase.gsub(" ", "_")
   end
   helper_method :current_user
 
 
   def super_admin?
     return nil unless current_user
-    current_user.super_admin?
+    @current_user.super_admin?
   end
   helper_method :super_admin?
 
   def admin?
     return nil unless current_user
-    current_user.admin?
+    @current_user.admin?
   end
   helper_method :admin?
 
@@ -41,4 +46,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :student?
   
+
+
 end
