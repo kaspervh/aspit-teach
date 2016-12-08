@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    @school_students = current_user.school.students
-    @school_teachers = current_user.school.teachers
-    @school_mentors = current_user.school.mentors
-    @school_admins = current_user.school.admins
-    @grade_students = current_user.grade.students
+    @school_students = @current_user.school.students
+    @school_teachers = @current_user.school.teachers
+    @school_mentors = @current_user.school.mentors
+    @school_admins = @current_user.school.admins
+    @grade_students = @current_user.grade.students
   end
 
   # GET /users/1
@@ -62,6 +62,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user.diary_entries.destroy_all
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

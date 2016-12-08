@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Klasse_navn %>
+    <strong><%= f.label :Klasse_navn %></strong>
     <br>
     <%= f.text_field :name %>
   </div>
   <br>
   <div class="field">
-    <%= f.label :Skole %>
+    <strong><%= f.label :Skole %></strong>
     <br>
     <%=f.collection_select :school_id, @schools, :id, :name %>
   </div>
   <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Gem", class: "btn btn-secondary" %>
   </div>
   <br>
 <% end %>

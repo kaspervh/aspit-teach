@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128104551) do
+ActiveRecord::Schema.define(version: 20161207105012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,36 @@ ActiveRecord::Schema.define(version: 20161128104551) do
     t.datetime "updated_at",                   null: false
     t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "diary_entries", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "diary_entry_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "diary_entry_id"
+    t.boolean  "read"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["diary_entry_id"], name: "index_diary_entry_users_on_diary_entry_id", using: :btree
+    t.index ["user_id"], name: "index_diary_entry_users_on_user_id", using: :btree
+  end
+
+  create_table "grade_scheduels", force: :cascade do |t|
+    t.integer  "week_number"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "grades", force: :cascade do |t|

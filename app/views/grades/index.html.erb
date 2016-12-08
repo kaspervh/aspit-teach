@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Skole klasser</h1>
+<h3>Skole klasser</h3>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-inverse">
     <tr>
       <th>Navn</th>
-      <th>Skole</th>
+      <th>Skole id</th>
+      <th>Optioner</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,12 +15,12 @@
   <tbody>
     <% @grades.each do |grade| %>
       <tr>
-        <td><%= grade.name %></td>
-        <td><%= grade.school_id %></td>
-        <tr>
-        <td><%= link_to 'Vis', grade, class: "btn btn-success" %>
-        <%= link_to 'Rediger', edit_grade_path(grade), class: "btn btn-success" %></td>
-        <td><%= link_to 'Slet', grade, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success" %></td>
+        <strong><td><%= grade.name %></td></strong>
+        <strong><td><%= grade.school_id %></td></strong>
+        
+        <td><%= link_to 'Vis', grade, class: "btn btn-secondary" %>
+            <%= link_to 'Rediger', edit_grade_path(grade), class: "btn btn-secondary" %>
+            <%= link_to 'Slet', grade, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>
       </tr>
     <% end %>
@@ -28,4 +29,4 @@
 
 <br>
 
-<%= link_to 'Ny skole klasse', new_grade_path, class: "btn btn-success" %>
+<%= link_to 'Ny skole klasse', new_grade_path, class: "btn btn-secondary" %>

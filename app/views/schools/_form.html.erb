@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Skole_navn %>
+    <strong><%= f.label :Skole_navn %></strong>
     <br>
     <%= f.text_field :name %>
   </div>
   <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Gem", class: "btn btn-secondary" %>
   </div>
   <br>
 <% end %>
