@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :comments
 
   resources :diary_entries
@@ -8,7 +9,11 @@ Rails.application.routes.draw do
   resources :instructions
   resources :subjects
   resources :users
-  resources :grades
+  
+  resources :grades do 
+    resources :scheduels
+  end
+
   resources :schools
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "current_user/index"

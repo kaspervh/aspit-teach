@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	def index
-		@say = "hello world"
-    #current_user 
+		@scheduel = @current_user.grade.scheduels.last
+    @grade_students = @current_user.grade.students
 	end
 end

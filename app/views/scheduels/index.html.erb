@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Uge skemaer</h3>
+
+<table>
+  <thead>
+    <tr>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scheduels.each do |scheduel| %>
+      <tr>
+        <tr><strong><%= scheduel.created_at %></strong></tr>
+        <tr><%= image_tag scheduel.image.url(:slide) %></tr>
+        <tr>
+        <td><%= link_to 'Vis', scheduel, class: "btn btn-secondary" %>
+        <%= link_to 'Rediger', edit_scheduel_path(scheduel), class: "btn btn-secondary" %>
+        <%= link_to 'Slet', scheduel, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scheduel', new_scheduel_path, class: "btn btn-secondary" %>
