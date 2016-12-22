@@ -18,7 +18,7 @@
       <tr>
         <strong><td><%= diary_entry.created_at %></td></strong>
         <strong><td><%= diary_entry.author_name %></td></strong>
-        <td><%= link_to 'Vis', diary_entry, class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Vis', diary_entry_path(diary_entry), class: "btn btn-secondary" %></td>
         <td>
         <%if diary_entry.read?(@current_user)%>   
           <i class="fa fa-check-square fa-4" aria-hidden="true"/>

@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
-  
   resources :comments
-
-  resources :diary_entries
+  
   get 'unread_diary_entries/index'
 
   #mount Ckeditor::Engine => '/ckeditor'
   resources :instructions
   resources :subjects
-  resources :users
+  
+
+  resources :users do 
+    resources :messages
+    resources :diary_entries
+  end 
+
   
   resources :grades do 
     resources :scheduels

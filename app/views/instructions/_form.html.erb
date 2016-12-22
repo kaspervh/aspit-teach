@@ -1,4 +1,4 @@
-<%= form_for(instruction) do |f| %>
+<%= simple_form_for(instruction) do |f| %>
   <% if instruction.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(instruction.errors.count, "error") %> prohibited this instruction from being saved:</h2>
@@ -11,25 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <strong><%= f.label :Emne %></strong>
+    <%= f.input :school_id, collection: @subjects, label_method: :name, value_method: :id,label: "Emne:", include_blank: false, selected: @instruction.subject_id %>
+
+    <%= f.input :name, label: "Instruktions navn" %>
+  
+    <%= f.cktext_area :content, label: "Indhold" %>
     <br>
-    <%= f.collection_select :subject_id, @subjects, :id, :name%>
-  </div>
-  <br>
-  <div class="field">
-    <strong><%= f.label :Navn %></strong>
-    <br>
-    <%= f.text_field :name %>
-  </div>
-  <br>
-  <div class="field">
-    <strong><%= f.label :Indhold %></strong>
-    <br>
-    <%= f.cktext_area :content %>
-  </div>
-  <br>
-  <div class="actions">
     <%= f.submit "Gem", class: "btn btn-secondary" %>
-  </div>
+  
 <% end %>
+
+</div>

@@ -7,8 +7,8 @@ class Grade < ApplicationRecord
     users.joins(:role).where(roles: {name: "Student"})
   end
 
-  def diary_entry_users(current_user)
-    mentors + teachers
+  def message_users(current_user)
+    teachers_and_mentors.ids
   end
 
   def mentors
@@ -17,5 +17,9 @@ class Grade < ApplicationRecord
 
   def teachers
     users.joins(:role).where(roles: {name: "Teacher"})
+  end
+
+  def teachers_and_mentors
+    users.joins(:role).where(roles: {name: "Teacher", name: "Mentor"})
   end
 end

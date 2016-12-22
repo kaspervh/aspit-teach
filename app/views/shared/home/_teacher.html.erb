@@ -32,7 +32,7 @@
             <tr>
               <td><h5><%=student.username%></h5></td>
               <td></td>
-              <td><%= link_to "Dagbogsnotater", diary_entries_path(user_id: student.id), class: " btn btn-secondary"%></td>
+              <td><%= link_to "Dagbogsnotater", diary_entries_path(student.id), class: " btn btn-secondary"%></td>
             </tr>
           </table>
         <%end%>  
@@ -47,10 +47,6 @@
         </a>
       </h5>
     </div>
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="card-block">
-        
-      </div>
-    </div>
+    
   </div>
 </div>

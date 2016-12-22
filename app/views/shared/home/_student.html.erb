@@ -27,15 +27,15 @@
     </div>
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-block">
-        <% @current_user.diary_entries.each do |diary_entry| %>
-          <table>
-            <tr>
-              <td><h5><%=diary_entry.created_at%></h5></td>
-              <td></td>
-              <td><%= link_to "Dagbogsnotater", diary_entry, class: " btn btn-secondary"%></td>
-            </tr>
-          </table>
-        <%end%>  
+        <table>
+        <%@user_diary_entries.each do |diary_entry| %>
+          <tr>
+            <td><strong><%= diary_entry.created_at %></strong></td>
+            <td></td>
+            <td><%= link_to "Dagbogsnotat", diary_entry_path(diary_entry), class: "btn btn-secondary"%> </td>
+          </tr>
+          <%end%>
+        </table>
       </div>
     </div>
   </div>

@@ -2,13 +2,13 @@ class CommentsController < ApplicationController
 
   def index
     @commentable.comments
+  end
 
   def new
     @comment = Comment.new
   end
 
   def create
-    ap params
     @comment = Comment.new comment_params
     if @comment.save!
       redirect_to :back, notice: "Din kommentar er blevet oprettet"

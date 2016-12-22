@@ -1,4 +1,4 @@
-<%= form_for(school) do |f| %>
+<%= simple_form_for(school) do |f| %>
   <% if school.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(school.errors.count, "error") %> prohibited this school from being saved:</h2>
@@ -11,14 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <strong><%= f.label :Skole_navn %></strong>
-    <br>
-    <%= f.text_field :name %>
-  </div>
-  <br>
-  <div class="actions">
+  
+    <%= f.input :name, label: "Skole Navn" %>
+ 
     <%= f.submit "Gem", class: "btn btn-secondary" %>
-  </div>
-  <br>
+
+ 
 <% end %>
+ <br>
