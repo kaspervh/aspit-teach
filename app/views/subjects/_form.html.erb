@@ -11,14 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <strong><%= f.label :Navn %></strong>
-    <br>
-    <%= f.text_field :name %>
-  </div>
-  <br>
-  <div class="actions">
+  
+    <%= f.input :name, label: "Emne navn" %>
+
     <%= f.submit "Gem", class: "btn btn-secondary" %>
-  </div>
+
 <% end %>
-<br
+<br>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Alle dagbogsnotater</h3>
+<h3>Beskeder</h3>
 
 <table class="table">
   <thead class="thead-inverse">
@@ -14,14 +14,13 @@
   </thead>
 
   <tbody>
-    <% @diary_entries.reverse.each do |diary_entry| %>
+    <% @messages.each do |message| %>
       <tr>
-        <td><strong><%= diary_entry.created_at %></strong></td>
-        <td><strong><%= diary_entry.author_name %></strong></td>
-
-        <td><%= link_to 'Vis', diary_entry, class: "btn btn-secondary" %></td>
+        <strong><td><%= message.created_at %></td></strong>
+        <strong><td><%= message.author_name %></td></strong>
+        <td><%= link_to 'Vis', message_path(message), class: "btn btn-secondary" %></td>
         <td>
-        <%if diary_entry.read?(@current_user)%>   
+        <%if message.read?(@current_user)%>   
           <i class="fa fa-check-square fa-4" aria-hidden="true"/>
         <%else%>
           <i class="fa fa-minus-square fa-4" aria-hidden="true"/>
@@ -33,3 +32,5 @@
 </table>
 
 <br>
+
+

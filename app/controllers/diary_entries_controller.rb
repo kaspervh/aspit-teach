@@ -4,24 +4,25 @@ class DiaryEntriesController < ApplicationController
   # GET /diary_entries
   # GET /diary_entries.json
   def index
-    @diary_entries = DiaryEntry.joins(:diary_entry_users).where(diary_entry_users: {user_id: params[:user_id]})
+    @diary_entries = @current_user.messages.where(message_type: "diary_entry")
+    ap @diary_entries
   end
 
   # GET /diary_entries/1
   # GET /diary_entries/1.json
-  def show
-    if diary_entry_user = @diary_entry.diary_entry_users.where(user_id: @current_user.id).first
-      diary_entry_user.mark_as_read
-    else
+   def show
+     if message_user = @diary_entry.message_users.where(user_id: @current_user.id).first
+      message_user.mark_as_read
+     else
       ""
-    end
+     end
 
-    @comment = Comment.new
+     @comment = Comment.new
   end
 
   # GET /diary_entries/new
   def new
-    @diary_entry = DiaryEntry.new
+    @diary_entry = Message.new
   end
 
   # GET /diary_entries/1/edit
@@ -31,9 +32,7 @@ class DiaryEntriesController < ApplicationController
   # POST /diary_entries
   # POST /diary_entries.json
   def create
-    ap "diary_entries_contriller#create"
-    @diary_entry = DiaryEntry.new(diary_entry_params)
-    ap @current_user
+    @diary_entry = Message.new(diary_entry_params)
     respond_to do |format|
       if @diary_entry.save
         @diary_entry.create_diary_entry_users(@current_user)
@@ -73,11 +72,11 @@ class DiaryEntriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_diary_entry
-      @diary_entry = DiaryEntry.find(params[:id])
+      @diary_entry = Message.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diary_entry_params
-      params.require(:diary_entry).permit(:content)
+      params.require(:message).permit!
     end
 end

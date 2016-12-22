@@ -3,6 +3,10 @@
 </li>
 
 <li class="nav-item">
-  <%=link_to "Ulæste dagbogs notater (#{@current_user.unread_diary_entries_count})", unread_diary_entries_index_path(@current_user), class: "nav-link " %>
+  <%=link_to "Ulæste dagbogs notater (#{@current_user.unread_diary_entries_count})", user_diary_entries_path(@current_user), class: "nav-link " %>
+</li>
+
+<li class="nav-item">
+  <%=link_to "NyBesked", new_message_path, class: "nav-link" %>
 </li>
 

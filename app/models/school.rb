@@ -2,7 +2,6 @@ class School < ApplicationRecord
 	has_many :grades
   has_many :users
 
-
   def students
     users.joins(:role).where(roles: {name: "Student"})
   end

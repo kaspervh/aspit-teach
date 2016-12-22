@@ -13,5 +13,14 @@
       <%=render "shared/navbar/navbar_links/" + @current_user_name%>
     </li>
 
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Beskeder</a>
+      <div class="dropdown-menu" aria-labelledby="Preview">
+       
+        <%=link_to "NyBesked", new_message_path, class: "nav-link" %>
+        <%= link_to "ulæste beskeder(#{@current_user.unread_messages_count})", messages_path(@current_user), class: "nav-link"%>
+      </div>
+    </li>
+
   </ul>
 </nav>

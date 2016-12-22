@@ -4,8 +4,8 @@ class User < ApplicationRecord
   belongs_to :school
   belongs_to :grade
 
-  has_many :diary_entry_users
-  has_many :diary_entries, through: :diary_entry_users
+  has_many :message_users
+  has_many :messages, through: :message_users
 
   def super_admin?
     role.name == "Super admin"
@@ -28,16 +28,27 @@ class User < ApplicationRecord
   end
 
   def unread_diary_entries_count
-    diary_entry_users.where(read: false).count        
+    unread_diary_entries.count        
+  end
+
+  def unread_messages_count
+    unread_messages.count
   end
 
   def unread_diary_entries
-    diary_entries.joins(:diary_entry_users).where(diary_entry_users: {read: false})
+    messages.where(message_type: "diary_entry").joins(:message_users).where(message_users: {read: false})
   end
 
   def read_diary_entries
-    diary_entries.joins(:diary_entry_users).where(diary_entry_users: {read: true})
+    messages.joins(:message_users).where(message_users: {read: true})
+  end
+
+  def unread_messages
+    messages.where(message_type: "message").joins(:message_users).where(message_users: {read: false})
   end 
 
-  
+  def read_messages
+    messages.joins(:message_users).where(message_users: {read: true})
+  end
+
 end
