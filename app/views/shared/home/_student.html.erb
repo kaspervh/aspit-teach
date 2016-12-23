@@ -32,7 +32,7 @@
           <tr>
             <td><strong><%= diary_entry.created_at %></strong></td>
             <td></td>
-            <td><%= link_to "Dagbogsnotat", diary_entry_path(diary_entry), class: "btn btn-secondary"%> </td>
+            <td><%= link_to "Dagbogsnotat", user_diary_entries_path(diary_entry), class: "btn btn-secondary"%> </td>
           </tr>
           <%end%>
         </table>

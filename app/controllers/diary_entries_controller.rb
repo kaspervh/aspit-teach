@@ -22,7 +22,7 @@ class DiaryEntriesController < ApplicationController
 
   # GET /diary_entries/new
   def new
-    @diary_entry = Message.new
+    @diary_entry = @current_user.messages.new
   end
 
   # GET /diary_entries/1/edit
