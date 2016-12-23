@@ -5,7 +5,7 @@ class DiaryEntriesController < ApplicationController
   # GET /diary_entries.json
   def index
     @diary_entries = @current_user.messages.where(message_type: "diary_entry")
-    ap @diary_entries
+    
   end
 
   # GET /diary_entries/1
