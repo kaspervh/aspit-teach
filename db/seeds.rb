@@ -33,7 +33,7 @@ ap super_admin = Role
                  .first_or_create(name: "Super admin")
 
 ap User
-   .wher(username: "super admin", email:"kaspervhauschildt@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: super_admin.id, grade_id: grade.id)
+   .where(username: "super admin", email:"kaspervhauschildt@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: super_admin.id, grade_id: grade.id)
    .first_or_create(username: "super admin", email:"kaspervhauschildt@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: super_admin.id, grade_id: grade.id)
 
 ap User
