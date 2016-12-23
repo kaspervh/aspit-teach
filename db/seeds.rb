@@ -3,19 +3,51 @@ Grade.destroy_all
 Role.destroy_all
 User.destroy_all
 
-ap school = School.create(name: "Aspit østjylland")
+ap school = School
+            .where(name: "en skole")
+            .first_or_create(name: "en skole")
 
 
-ap grade = Grade.create(name: "Ikke Tilknyttet klasse")
+ap grade = Grade
+            .where(name: "Ikke Tilknyttet klasse")
+            .first_or_create(school_id: school.id, name: "Ikke Tilknyttet klasse")
 
-ap student = Role.create(name: "Student")
-ap teacher = Role.create(name: "Teacher")
-ap mentor = Role.create(name: "Mentor")
-ap admin = Role.create(name: "Admin")
-ap super_admin = Role.create(name: "Super admin")
+ap student = Role
+             .where(name: "Student")
+             .first_or_create(name: "Student")
 
-ap User.create(username: "super admin", email:"kaspervhauschildt@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: super_admin.id, grade_id: grade.id)
-ap User.create(username: "admin", email:"kalle@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: admin.id, grade_id: grade.id)
-ap User.create(username: "lære", email: "kim@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: teacher.id, grade_id: grade.id)
-ap User.create(username: "special pedagog", email: "christian@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: mentor.id, grade_id: grade.id)
-ap User.create(username: "elev", email: "keneth@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: student.id, grade_id: grade.id)
+ap teacher = Role
+             .where(name: "Teacher")
+             .first_or_create(name: "Teacher")
+
+ap mentor = Role
+            .where(name: "Mentor")
+            .first_or_create(name: "Mentor")
+
+ap admin = Role
+           .where(name: "Admin")
+           .first_or_create(name: "Admin")
+
+ap super_admin = Role
+                 .where(name: "Super admin")
+                 .first_or_create(name: "Super admin")
+
+ap User
+   .wher(username: "super admin", email:"kaspervhauschildt@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: super_admin.id, grade_id: grade.id)
+   .first_or_create(username: "super admin", email:"kaspervhauschildt@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: super_admin.id, grade_id: grade.id)
+
+ap User
+   .where(username: "admin", email:"kalle@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: admin.id, grade_id: grade.id)
+   .first_or_create(username: "admin", email:"kalle@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: admin.id, grade_id: grade.id)
+
+ap User
+   .where(username: "lære", email: "kim@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: teacher.id, grade_id: grade.id)
+   .first_or_create(username: "lære", email: "kim@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: teacher.id, grade_id: grade.id)
+
+ap User
+   .where(username: "special pedagog", email: "christian@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: mentor.id, grade_id: grade.id)
+   .first_or_create(username: "special pedagog", email: "christian@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: mentor.id, grade_id: grade.id)
+
+ap User
+   .where(username: "elev", email: "keneth@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: student.id, grade_id: grade.id)
+   .first_or_create(username: "elev", email: "keneth@gmail.com", password_digest: "tvebakk1", school_id: school.id, role_id: student.id, grade_id: grade.id)
