@@ -5,8 +5,8 @@
   <%= @diary_entry.content.html_safe %>
 </p>
 
-<%= link_to 'Rediger', edit_diary_entry_path(@diary_entry), class: "btn btn-secondary" %> 
-<%= link_to 'Tilbage', diary_entries_path, class: "btn btn-secondary" %>
+<%= link_to 'Rediger', edit_user_diary_entry_path(@diary_entry), class: "btn btn-secondary" %> 
+<%= link_to 'Tilbage', user_diary_entries_path, class: "btn btn-secondary" %>
 <br>
 <br>
 
