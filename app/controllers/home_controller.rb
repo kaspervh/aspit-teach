@@ -3,6 +3,8 @@ class HomeController < ApplicationController
 		@scheduel = @current_user.grade.scheduels.last
     
     @grade_students = @current_user.grade.students
+
+    
     
     @user_diary_entries = @current_user.messages.where(message_type: "diary_entry")
 

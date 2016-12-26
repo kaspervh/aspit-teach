@@ -19,7 +19,7 @@
         <td><%= link_to 'Vis', user, class: "btn btn-secondary" %>
         <%= link_to 'Rediger', edit_user_path(user), class: "btn btn-secondary" %>
         <%= link_to 'Slet', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          <%=link_to "Dagbogsnotater", diary_entries_path(user_id: user.id), class: "btn btn-secondary" %></td>
+          <%=link_to "Dagbogsnotater", user_diary_entries_path(user_id: user.id), class: "btn btn-secondary" %></td>
         </td>
         </tr>
       </tr>
