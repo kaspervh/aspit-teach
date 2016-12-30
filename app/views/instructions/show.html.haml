@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+%h1
+  = @instruction.name.html_safe
+  %h1
+%p
+  %strong Indhold:
+  = @instruction.content.html_safe
+= link_to 'Rediger', edit_instruction_path(@instruction), class: "btn btn-secondary"
+= link_to 'Instruktioner', instructions_path, class: "btn btn-secondary"

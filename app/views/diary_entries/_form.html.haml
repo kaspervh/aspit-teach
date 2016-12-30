@@ -1,0 +1,12 @@
+- if @diary_entry.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(diary_entry.errors.count, "error")
+      prohibited this diary_entry from being saved:
+    %ul
+      - diary_entry.errors.full_messages.each do |message|
+        %li= message
+= f.hidden_field :message_type, value: "diary_entry"
+= f.cktext_area :content
+= f.submit "Gem", class: "btn btn-secondary"
+%br/

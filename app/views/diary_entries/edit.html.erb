@@ -1,7 +1,0 @@
-<h3>Rediger dagbogsnotat</h3>
-<br>
-<%= simple_form_for [@current_user, @diary_entry], url: url_for(action: 'update', controller: 'diary_entries'), method: 'put' do |f| %>
-<%= render 'form', diary_entry: @diary_entry, f: f %>
-<%end%>
-<%= link_to 'Vis', @diary_entry, class: "btn btn-secondary" %> |
-<%= link_to 'Tilbage', user_diary_entries_path, class: "btn btn-secondary" %>

@@ -1,0 +1,14 @@
+= simple_form_for(instruction) do |f|
+  - if instruction.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(instruction.errors.count, "error")
+        prohibited this instruction from being saved:
+      %ul
+        - instruction.errors.full_messages.each do |message|
+          %li= message
+  = f.input :school_id, collection: @subjects, label_method: :name, value_method: :id,label: "Emne:", include_blank: false, selected: @instruction.subject_id
+  = f.input :name, label: "Instruktions navn"
+  = f.cktext_area :content, label: "Indhold"
+  %br/
+  = f.submit "Gem", class: "btn btn-secondary"

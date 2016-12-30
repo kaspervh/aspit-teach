@@ -1,0 +1,20 @@
+%p#notice= notice
+%h3 Skoler
+%table.table
+  %thead.thead-inverse
+    %tr
+      %th Name
+      %th Optioner
+      %th{:colspan => "3"}
+  %tbody
+    - @schools.each do |school|
+      %tr
+        %td
+          %strong= school.name
+        %td
+          = link_to 'Rediger', edit_school_path(school), class: "btn btn-secondary"
+          = link_to 'Vis', school, class: "btn btn-secondary"
+          = link_to 'Slet', school, method: :delete, data: { confirm: 'Er du sikker på at du vil slette denne skole?' }, class: "btn btn-danger"
+%br/
+= link_to 'Ny skole', new_school_path, class: "btn btn-secondary"
+= link_to 'Ny skole klasse', new_grade_path, class: "btn btn-secondary"

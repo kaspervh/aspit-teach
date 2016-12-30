@@ -1,0 +1,42 @@
+#accordion{"aria-multiselectable" => "true", :role => "tablist"}
+  .card
+    #headingOne.card-header{:role => "tab"}
+      %h5.mb-0
+        %a{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
+          Ugeskema
+    #collapseOne.collapse.in{"aria-labelledby" => "headingOne", :role => "tabpanel"}
+      .card-block
+        - if @scheduel.nil?
+          = "din lære har endu ikke uploadet et skoleskema"
+        - else
+          = image_tag @scheduel.image.url(:slide)
+        = link_to "Nyt ugeskema", new_grade_scheduel_path(@current_user.grade_id), class: "btn btn-secondary"
+  .card
+    #headingTwo.card-header{:role => "tab"}
+      %h5.mb-0
+        %a.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
+          Mine dagbogsnotater
+    #collapseTwo.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
+      .card-block
+        %table
+          - @user_diary_entries.each do |diary_entry|
+            %tr
+              %td
+                %strong= diary_entry.created_at
+              %td
+              %td
+                = link_to "Dagbogsnotat", user_diary_entries_path(diary_entry), class: "btn btn-secondary"
+  .card
+    #headingThree.card-header{:role => "tab"}
+      %h5.mb-0
+        %a.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}
+          Mine Målsætninger
+    #collapseThree.collapse{"aria-labelledby" => "headingThree", :role => "tabpanel"}
+      .card-block
+.card
+  #headingFour.card-header{:role => "tab"}
+    %h5.mb-0
+      %a.collapsed{"aria-controls" => "collapseFour", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFour"}
+        Mine beskeder
+  #collapseFour.collapse{"aria-labelledby" => "headingFour", :role => "tabpanel"}
+    .card-block
