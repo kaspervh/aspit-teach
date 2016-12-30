@@ -1,0 +1,3 @@
+%p#notice= notice
+- @subject.instructions.each do |instruction|
+  = link_to instruction.name.upcase, instruction, class: "btn btn-secondary"

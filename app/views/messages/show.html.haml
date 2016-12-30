@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Indhold:
+  = @message.content.html_safe
+= link_to 'Edit', edit_message_path(@message), class: "btn btn-secondary"
+|
+= link_to 'Back', messages_path, class: "btn btn-secondary"
+%br/
+%br/
+= render "shared/comment/form", commentable: @message, comment: @comment
+%br/
+%br/
+= render "shared/comment/messages_index"

@@ -1,7 +1,0 @@
-<h3>Ny besked</h3>
-<br>
-<%= simple_form_for [@current_user, @message], url: url_for(action: 'create', controller: 'messages'), method: 'post' do |f| %>
-  <%= render 'form', message: @message, f: f %>
-<%end%>
-
-<%= link_to 'Back', user_messages_path, class: "btn btn-secondary" %>

@@ -1,0 +1,24 @@
+%p#notice= notice
+%h1 Dagbogs notater
+%table.table
+  %thead.thead-inverse
+    %tr
+      %th Oprettelses dato
+      %th Forfatter
+      %th Optioner
+      %th Læst?
+      %th{:colspan => "3"}
+  %tbody
+    - @diary_entries.each do |diary_entry|
+      %tr
+        %strong
+          %td= diary_entry.created_at
+        %strong
+          %td= diary_entry.author_name
+        %td= link_to 'Vis', user_diary_entry_path(id: diary_entry.id), class: "btn btn-secondary"
+        %td
+          - if diary_entry.read?(@current_user)
+            %i.fa.fa-check-square.fa-4{"aria-hidden" => "true"}
+          - else
+            %i.fa.fa-minus-square.fa-4{"aria-hidden" => "true"}
+%br/

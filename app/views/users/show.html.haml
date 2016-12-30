@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Brugernavn:
+  = @user.username
+%p
+  %strong Email:
+  = @user.email
+%p
+  %strong Kodeord:
+  = @user.password_digest
+%p
+  %strong Rolle:
+  = @user.role_id
+%p
+  %strong SKole:
+  = @user.school_id
+%p
+  %strong Klasse:
+  = @user.grade_id
+= link_to 'Rediger', edit_user_path(@user), class: "btn btn-secondary"
+|
+= link_to 'Brugere', users_path, class: "btn btn-secondary"

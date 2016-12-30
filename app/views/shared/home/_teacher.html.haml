@@ -1,0 +1,32 @@
+#accordion{"aria-multiselectable" => "true", :role => "tablist"}
+  .card
+    #headingOne.card-header{:role => "tab"}
+      %h5.mb-0
+        %a{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
+          Ugeskema
+    #collapseOne.collapse.in{"aria-labelledby" => "headingOne", :role => "tabpanel"}
+      .card-block
+        - if @scheduel.nil?
+          = "upload skoleskema for klassen her"
+        - else
+          = image_tag @scheduel.image.url(:slide)
+        = link_to "Nyt ugeskema", new_grade_scheduel_path(@current_user.grade_id), class: "btn btn-secondary"
+  .card
+    #headingTwo.card-header{:role => "tab"}
+      %h5.mb-0
+        %a.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
+          Mine elever
+    #collapseTwo.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
+      .card-block
+        - @grade_students.each do |student|
+          %table
+            %tr
+              %td
+                %h5= student.username
+              %td
+              %td= link_to "Dagbogsnotater", user_diary_entries_path(student.id), class: " btn btn-secondary"
+  .card
+    #headingThree.card-header{:role => "tab"}
+      %h5.mb-0
+        %a.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}
+          Mine beskeder

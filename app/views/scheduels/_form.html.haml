@@ -1,0 +1,16 @@
+= simple_form_for [@grade, @scheduel] do |f|
+  - if @scheduel.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(scheduel.errors.count, "error")
+        prohibited this scheduel from being saved:
+      %ul
+        - scheduel.errors.full_messages.each do |message|
+          %li= message
+  %br/
+  = f.hidden_field :grade_id, value: @grade_id
+  = f.file_field :image
+  %br/
+  %br/
+  = f.submit "Gem", class: "btn btn-secondary"
+%br/

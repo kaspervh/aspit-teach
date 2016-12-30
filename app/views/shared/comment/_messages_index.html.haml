@@ -1,0 +1,12 @@
+%table
+  %thead
+    %tr
+      %th kommentare
+      %th{:colspan => "3"}
+  %tbody
+    - @message.comments.each do |comment|
+      %tr
+        %td
+          %strong
+            = comment.content
+            %strong
