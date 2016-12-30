@@ -10,13 +10,16 @@
 
     <div id="collapseOne" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
-        <%=image_tag @scheduel.image.url(:slide)%>
-
-        <%=link_to "Nyt ugeskema", new_grade_scheduel_path(@current_user.grade_id), class: "btn btn-secondary" %>
-
+        <% if @scheduel.nil? %>
+          <%= "din lære har endu ikke uploadet et skoleskema" %>
+        <%else%>  
+          <%=image_tag @scheduel.image.url(:slide) %>
+        <%end%>
+        <%=link_to "Nyt ugeskema", new_grade_scheduel_path(@current_user.grade_id), class: "btn btn-secondary" %>   
       </div>
     </div>
   </div>
+  
   <div class="card">
     <div class="card-header" role="tab" id="headingTwo">
       <h5 class="mb-0">

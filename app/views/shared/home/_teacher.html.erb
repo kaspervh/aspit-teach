@@ -10,8 +10,11 @@
 
     <div id="collapseOne" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
-        <%=image_tag @scheduel.image.url(:slide)%>
-
+        <% if @scheduel.nil? %>
+          <%= "upload skoleskema for klassen her" %>
+        <%else%>  
+          <%=image_tag @scheduel.image.url(:slide) %>
+        <%end%>
         <%=link_to "Nyt ugeskema", new_grade_scheduel_path(@current_user.grade_id), class: "btn btn-secondary" %>
 
       </div>
@@ -25,6 +28,7 @@
         </a>
       </h5>
     </div>
+    
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-block">
         <% @grade_students.each do |student| %>
