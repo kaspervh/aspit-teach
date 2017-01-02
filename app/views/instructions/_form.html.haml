@@ -9,6 +9,6 @@
           %li= message
   = f.input :school_id, collection: @subjects, label_method: :name, value_method: :id,label: "Emne:", include_blank: false, selected: @instruction.subject_id
   = f.input :name, label: "Instruktions navn"
-  = f.cktext_area :content, label: "Indhold"
+  = f.input :content, as: :ckeditor, label: "Indhold"
   %br/
   = f.submit "Gem", class: "btn btn-secondary"
