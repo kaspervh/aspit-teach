@@ -8,10 +8,16 @@
         - user.errors.full_messages.each do |message|
           %li= message
   = f.input :username, label: "Brugernavn:"
+
   = f.input :email, label: "Email:"
+
   = f.input :password_digest, label: "Kodeord:"
+
   = f.input :role_id, label: "Rolle:"
+
   = f.input :school_id, collection: @schools, label_method: :name, value_method: :id,label: "Skole", include_blank: false, selected: @user.school_id
+
   = f.input :grade_id, collection: @grades, label_method: :name, value_method: :id,label: "Klasse", include_blank: false, selected: @user.grade_id
+  
   = f.submit "Gem", class: "btn btn-secondary"
 %br/
