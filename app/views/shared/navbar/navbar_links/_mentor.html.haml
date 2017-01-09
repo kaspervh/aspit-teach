@@ -1,4 +1,4 @@
-%li.nav-item
+%li
   = link_to "Elever", users_path, class: "nav-link"
-%li.nav-item
+%li
   = link_to "Ulæste dagbogs notater (#{@current_user.unread_diary_entries_count})", user_diary_entries_path(@current_user), class: "nav-link "

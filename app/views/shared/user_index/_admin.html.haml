@@ -12,10 +12,10 @@
       %td
         %strong= user.email
       %td
-        = link_to 'Vis', user, class: "btn btn-secondary"
-        = link_to 'Rediger', edit_user_path(user), class: "btn btn-secondary"
+        = link_to 'Vis', user, class: "btn btn-default"
+        = link_to 'Rediger', edit_user_path(user), class: "btn btn-default"
         = link_to 'Slet', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
-        = link_to "Dagbogsnotater", user_diary_entries_path(user_id: user.id), class: "btn btn-secondary"
+        = link_to "Dagbogsnotater", user_diary_entries_path(user_id: user.id), class: "btn btn-default"
   %table.table
     %thead.thead-inverse
       %h3 Lærer
@@ -31,8 +31,8 @@
           %td
             %strong= user.email
           %td
-            = link_to 'Vis', user, class: "btn btn-secondary"
-            = link_to 'Rediger', edit_user_path(user), class: "btn btn-secondary"
+            = link_to 'Vis', user, class: "btn btn-default"
+            = link_to 'Rediger', edit_user_path(user), class: "btn btn-default"
             = link_to 'Slet', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
   %br/
   %table.table
@@ -51,8 +51,8 @@
           %td
             %strong= user.email
           %td
-            = link_to 'Vis', user, class: "btn btn-secondary"
-            = link_to 'Rediger', edit_user_path(user), class: "btn btn-secondary"
+            = link_to 'Vis', user, class: "btn btn-default"
+            = link_to 'Rediger', edit_user_path(user), class: "btn btn-default"
             = link_to 'Slet', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
   %br/
   %table.table
@@ -71,10 +71,10 @@
           %td
             %strong= user.email
           %td
-            = link_to 'Vis', user, class: "btn btn-secondary"
-            = link_to 'Rediger', edit_user_path(user), class: "btn btn-secondary"
+            = link_to 'Vis', user, class: "btn btn-default"
+            = link_to 'Rediger', edit_user_path(user), class: "btn btn-default"
             = link_to 'Slet', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
   %br/
-  = link_to 'Ny bruger', new_user_path, class: "btn btn-secondary"
+  = link_to 'Ny bruger', new_user_path, class: "btn btn-default"
   %br/
   %br/

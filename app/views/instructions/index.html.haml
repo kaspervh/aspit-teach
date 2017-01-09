@@ -12,8 +12,8 @@
         %td
           %strong= instruction.name.html_safe
         %td
-          = link_to 'Vis', instruction, class: "btn btn-secondary"
-          = link_to 'Rediger', edit_instruction_path(instruction), class: "btn btn-secondary"
+          = link_to 'Vis', instruction, class: "btn btn-default"
+          = link_to 'Rediger', edit_instruction_path(instruction), class: "btn btn-default"
           = link_to 'Slet', instruction, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'Ny instruktion', new_instruction_path, class: "btn btn-secondary"
+= link_to 'Ny instruktion', new_instruction_path, class: "btn btn-default"

@@ -18,5 +18,7 @@ class School < ApplicationRecord
     users.joins(:role).where(roles: {name: "Admin"})
   end
 
-  
+  #def message_users(current_user)
+  #  mentors.ids
+  #end
 end

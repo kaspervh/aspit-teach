@@ -36,7 +36,7 @@ class DiaryEntriesController < ApplicationController
     respond_to do |format|
       if @diary_entry.save
         @diary_entry.create_diary_entry_users(@current_user)
-        format.html { redirect_to @diary_entry, notice: 'Diary entry was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Diary entry was successfully created.' }
         format.json { render :show, status: :created, location: @diary_entry }
       else
         format.html { render :new }

@@ -1,13 +1,18 @@
-%nav.navbar.navbar-dark.bg-inverse.text-normal
-  %ul.nav.navbar-nav
-    %li.nav-item.active
-      = link_to "AspIT - Teach", root_path, class: "navbar-brand "
-    %li.nav-item
-      = link_to "skift bruger", current_user_index_path, class: "nav-link"
-    %li.nav-item
-      = render "shared/navbar/navbar_links/" + @current_user_name
-    %li.nav-item.dropdown
-      %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"} Beskeder
-      .dropdown-menu{"aria-labelledby" => "Preview"}
-        = link_to "NyBesked", new_user_message_path(@current_user), class: "nav-link"
-        = link_to "ulæste beskeder(#{@current_user.unread_messages_count})", user_messages_path(@current_user), class: "nav-link"
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "Aspit-teach", root_path, class: "navbar-brand"
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        
+        %li
+          = link_to "skift bruger", current_user_index_path, class: "nav-link"
+
+        
+        = render "shared/navbar/navbar_links/" + @current_user_name
+    / /.nav-collapse

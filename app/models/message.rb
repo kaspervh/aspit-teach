@@ -5,7 +5,9 @@ class Message < ApplicationRecord
 
   def create_diary_entry_users(current_user)
     if grade = current_user.grade
-      user_ids = grade.message_users(current_user)
+      teacher_id = grade.message_users(current_user)
+      #mentor_id = School.message_users(current_user)
+      user_ids = teacher_id #+ mentor_id
       create_readers(current_user, user_ids)
     else 
       # TODO: create error handling 

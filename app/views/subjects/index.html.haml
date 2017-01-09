@@ -12,8 +12,8 @@
         %td
           %strong= subject.name
         %td
-          = link_to 'Vis', subject, class: "btn btn-secondary"
-          = link_to 'Rediger', edit_subject_path(subject), class: "btn btn-secondary"
+          = link_to 'Vis', subject, class: "btn btn-default"
+          = link_to 'Rediger', edit_subject_path(subject), class: "btn btn-default"
           = link_to 'Slet', subject, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'Nyt emne', new_subject_path, class: "btn btn-secondary"
+= link_to 'Nyt emne', new_subject_path, class: "btn btn-default"

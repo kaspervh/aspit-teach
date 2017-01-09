@@ -15,8 +15,8 @@
         %strong
           %td= grade.school_id
         %td
-          = link_to 'Vis', grade, class: "btn btn-secondary"
-          = link_to 'Rediger', edit_grade_path(grade), class: "btn btn-secondary"
+          = link_to 'Vis', grade, class: "btn btn-default"
+          = link_to 'Rediger', edit_grade_path(grade), class: "btn btn-default"
           = link_to 'Slet', grade, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
 %br/
-= link_to 'Ny skole klasse', new_grade_path, class: "btn btn-secondary"
+= link_to 'Ny skole klasse', new_grade_path, class: "btn btn-default"
