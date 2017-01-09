@@ -2,8 +2,8 @@
 %p
   %strong Content:
   = @diary_entry.content.html_safe
-= link_to 'Rediger', edit_user_diary_entry_path(@diary_entry), class: "btn btn-secondary"
-= link_to 'Tilbage', user_diary_entries_path, class: "btn btn-secondary"
+= link_to 'Rediger', edit_user_diary_entry_path(@diary_entry), class: "btn btn-default"
+= link_to 'Tilbage', user_diary_entries_path, class: "btn btn-default"
 %br/
 %br/
 = render "shared/comment/form", commentable: @diary_entry, comment: @comment

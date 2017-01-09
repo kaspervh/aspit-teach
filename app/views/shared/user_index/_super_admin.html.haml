@@ -11,8 +11,8 @@
       %td
         %strong= user.email
       %td
-        = link_to 'Vis', user, class: "btn btn-secondary"
-        = link_to 'Rediger', edit_user_path(user), class: "btn btn-secondary"
+        = link_to 'Vis', user, class: "btn btn-default"
+        = link_to 'Rediger', edit_user_path(user), class: "btn btn-default"
         = link_to 'Slet', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
 %br/
-= link_to 'Ny bruger', new_user_path, class: "btn btn-secondary"
+= link_to 'Ny bruger', new_user_path, class: "btn btn-default"

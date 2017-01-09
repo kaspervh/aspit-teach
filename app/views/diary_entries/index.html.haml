@@ -1,7 +1,7 @@
 %p#notice= notice
 %h1 Dagbogs notater
-%table.table
-  %thead.thead-inverse
+%table.table.table-hover
+  %thead
     %tr
       %th Oprettelses dato
       %th Forfatter
@@ -15,7 +15,7 @@
           %td= diary_entry.created_at
         %strong
           %td= diary_entry.author_name
-        %td= link_to 'Vis', user_diary_entry_path(id: diary_entry.id), class: "btn btn-secondary"
+        %td= link_to 'Vis', user_diary_entry_path(id: diary_entry.id), class: "btn btn-default"
         %td
           - if diary_entry.read?(@current_user)
             %i.fa.fa-check-square.fa-4{"aria-hidden" => "true"}

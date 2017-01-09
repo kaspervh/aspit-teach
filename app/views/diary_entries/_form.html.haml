@@ -7,6 +7,6 @@
       - diary_entry.errors.full_messages.each do |message|
         %li= message
 = f.hidden_field :message_type, value: "diary_entry"
-= f.cktext_area :content
-= f.submit "Gem", class: "btn btn-secondary"
+= f.input :content, as: :bootsy
+= f.submit "Gem", class: "btn btn-default"
 %br/

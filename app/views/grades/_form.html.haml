@@ -9,5 +9,5 @@
           %li= message
   = f.input :name, label: "Klasse navn"
   = f.input :school_id, collection: @schools, label_method: :name, value_method: :id,label: "Skole", include_blank: false, selected: @grade.school_id
-  = f.submit "Gem", class: "btn btn-secondary"
+  = f.submit "Gem", class: "btn btn-default"
   %br/
