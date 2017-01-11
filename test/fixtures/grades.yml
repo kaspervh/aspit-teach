@@ -1,9 +1,6 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
+no_grade:
+  id: 1
+  name: "Ikke Tilknyttet klasse"
   school_id: 1
-
-two:
-  name: MyString
-  school_id: 1
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

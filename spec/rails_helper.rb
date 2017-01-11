@@ -2,9 +2,10 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'spec_helper'
+#require 'test_helper'
 require 'rspec/rails'
 require 'capybara/rails'
-require 'shoulda/matchers'
+#require 'shoulda/matchers'
 require "#{::Rails.root}/test/test_helper"
 
 
@@ -34,8 +35,8 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path    = "#{::Rails.root}/test/fixtures"
-  config.global_fixtures = :all
+  #config.fixture_path    = "#{::Rails.root}/test/fixtures"
+  #config.global_fixtures = :all
 
 
 
@@ -60,8 +61,8 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  config.include(Shoulda::Matchers::ActiveModel, type: :model)
-  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  #config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  #config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 
   # Capybara.default_driver=:selenium
   Capybara.javascript_driver=:webkit

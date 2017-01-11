@@ -30,7 +30,7 @@ class InstructionsController < ApplicationController
 
     respond_to do |format|
       if @instruction.save
-        format.html { redirect_to @instruction, notice: 'Instruction was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Instruction was successfully created.' }
         format.json { render :show, status: :created, location: @instruction }
       else
         format.html { render :new }

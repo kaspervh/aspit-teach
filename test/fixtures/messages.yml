@@ -1,0 +1,13 @@
+diary_entry:
+  id: 1
+  content: "test 1<br><br>"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+  message_type: "diary_entry"
+
+message:
+  id: 2
+  content: "test 2 <br> <br>"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+  message_type: "message"

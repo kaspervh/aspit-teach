@@ -2,4 +2,4 @@
 %br/
 = simple_form_for [@current_user, @diary_entry], url: url_for(action: 'create', controller: 'diary_entries'), method: 'post' do |f|
   = render 'form', diary_entry: @diary_entry, f: f
-= link_to 'Back', user_diary_entries_path, class: "btn btn-default"
+= link_to 'Tilbage', user_diary_entries_path, class: "btn btn-default"

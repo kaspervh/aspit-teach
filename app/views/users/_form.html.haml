@@ -13,11 +13,11 @@
 
   = f.input :password_digest, label: "Kodeord:"
 
-  = f.input :role_id, label: "Rolle:"
+  = f.input :role_id, collection: @roles, label_method: :name, value_method: :id, label: "Rolle:", include_blank: false, selected: @user.role_id
 
-  = f.input :school_id, collection: @schools, label_method: :name, value_method: :id,label: "Skole", include_blank: false, selected: @user.school_id
+  = f.input :school_id, collection: @schools, label_method: :name, value_method: :id,label: "Skole:", include_blank: false, selected: @user.school_id
 
-  = f.input :grade_id, collection: @grades, label_method: :name, value_method: :id,label: "Klasse", include_blank: false, selected: @user.grade_id
+  = f.input :grade_id, collection: @grades, label_method: :name, value_method: :id,label: "Klasse:", include_blank: false, selected: @user.grade_id
   
   = f.submit "Gem", class: "btn btn-default"
 %br/
