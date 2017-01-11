@@ -12,6 +12,8 @@ ap grade = Grade
             .where(name: "Ikke Tilknyttet klasse")
             .first_or_create(school_id: school.id, name: "Ikke Tilknyttet klasse")
 
+ap subject = Subject.create(name: "Kop")
+
 ap student = Role
              .where(name: "Student")
              .first_or_create(name: "Student")

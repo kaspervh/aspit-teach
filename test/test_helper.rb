@@ -9,8 +9,7 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-include Warden::Test::Helpers
-	Warden.test_mode!
+
 
 #include Capybara::DSL
 
@@ -49,16 +48,9 @@ end
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
 
 
-class ActionController::TestCase
-  include Devise::Test::ControllerHelpers
-end
 
 class ActionDispatch::IntegrationTest
 
-  def signin_as(user)
-    logout(:user)
-  	login_as(user, scope:  :user)
-  end
+
 end
 
-@users = [:employee, :admin, :organization_admin]

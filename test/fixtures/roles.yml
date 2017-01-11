@@ -1,7 +1,30 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+student:
+  id: 1
+  name: "Student"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-one:
-  name: MyString
+teacher:
+  id: 1
+  name: "Student"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-two:
-  name: MyString
+mentor:
+  id: 3
+  name: "Mentor"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+admin:
+  id: 4
+  name: "Admin"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+super_admin:
+  id: 5
+  name: "Super admin"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
