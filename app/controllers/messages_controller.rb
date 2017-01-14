@@ -19,6 +19,8 @@ class MessagesController < ApplicationController
 
   def new
     @message = @current_user.messages.new
+    @school_students = @current_user.school.students
+    @everyone_else = @current_user.school.teachers_admins_mentors
   end
 
   def edit
