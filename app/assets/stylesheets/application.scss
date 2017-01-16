@@ -2,6 +2,14 @@
 @import "bootsy";
 @import "font-awesome";
 
+body{
+  background-color: #2c2c2c;
+}
+
+navbar{
+  color: white;
+}
+
 .fa-check-square-o {
   height: 50px;
   with: 50px;
@@ -9,9 +17,13 @@
 
 
 .wrapper{
- margin-top: 5%; 
- margin-left: 15%;
- margin-right: 15%;
+ background-color: white;
+ margin-top: 3%; 
+ margin-left: 10%;
+ margin-right: 10%;
+ padding: 1%;
+ height: 100%;
+ border-radius: 5px;
 }
 
 .btn{
@@ -21,4 +33,23 @@
 thead{
   background-color: black;
   color: white; 
+}
+
+.box {
+  width: auto;
+  height: auto;
+  margin-top: 20px;
+  margin-left: 10px;
+  float: left;
+}
+
+.button-box{
+  width: 20px;
+  height: 10px;
+  margin-top: 10px;
+}
+
+li.user{
+  font-family: FontAwesome;
+  content: "\f007"  
 }

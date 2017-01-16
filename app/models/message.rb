@@ -1,4 +1,6 @@
 class Message < ApplicationRecord
+  #include Bootsy::Container
+
   has_many :message_users, dependent: :destroy
   has_many :users, through: :message_users
   has_many :comments, as: :commentable 

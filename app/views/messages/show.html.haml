@@ -1,10 +1,12 @@
 %p#notice= notice
 %p
   %strong Indhold:
+  %br/
+  %br/
   = @message.content.html_safe
-= link_to 'Edit', edit_message_path(@message), class: "btn btn-default"
+=# link_to 'Edit', edit_message_path(@message), class: "btn btn-default"
 |
-= link_to 'Back', messages_path, class: "btn btn-default"
+= link_to 'Tilbage', user_messages_path(@current_user), class: "btn btn-default"
 %br/
 %br/
 = render "shared/comment/form", commentable: @message, comment: @comment

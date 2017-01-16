@@ -9,6 +9,14 @@
 = f.hidden_field :message_type, value: "message"
 = f.input :content, as: :text, label: "Besked text", input_html:{rows: 15}
 %br/
-= f.association :message_users, collection: User.all, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container'
-= f.submit "Send", class: "btn btn-default"
+%h5
+  %strong 
+    Vælg modtagere
+.box
+  = f.association :message_users, collection: @school_students, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container', label: "Skole elever"
+.box
+  = f.association :message_users, collection: @everyone_else, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container', label: "Fagligt personale"
+
+.button-box
+  = f.submit "Send", class: "btn btn-default"
 %br/

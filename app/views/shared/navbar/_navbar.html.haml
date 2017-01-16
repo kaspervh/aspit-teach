@@ -13,6 +13,17 @@
         %li
           = link_to "skift bruger", current_user_index_path, class: "nav-link"
 
-        
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", }
+            .fa.fa-envelope-o
+            ="Beskeder(#{@current_user.unread_messages_count})"
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}  
+            %li
+              = link_to "Mine beskeder", user_messages_path(@current_user)
+
+            %li
+              = link_to "Ny besked", new_user_message_path(@current_user)
+
         = render "shared/navbar/navbar_links/" + @current_user_name
     / /.nav-collapse
