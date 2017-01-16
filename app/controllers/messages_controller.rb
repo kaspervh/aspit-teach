@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
         message_user_ids.reject!{|s| s.empty?}
         message_user_ids.map!{|s| s.to_i} - [0]
         @message.create_readers(@current_user, message_user_ids)
-        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
+        format.html { redirect_to user_messages_path(@current_user), notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
