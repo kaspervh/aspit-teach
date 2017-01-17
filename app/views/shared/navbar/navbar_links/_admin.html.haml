@@ -1,27 +1,40 @@
 %li
-  = link_to "Brugere", users_path, class: "nav-link"
+  = link_to users_path do 
+    %i.fa.fa-users
+    Brugere
 
 %li
   = link_to "Skole klasser", grades_path, class: "nav-link"
 
 %li.dropdown.open
   %a.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", }
+    .fa.fa-files-o
     Instruktioner
     %span.caret
   %ul.dropdown-menu
     %li
-      = link_to "Nyt emne", new_subject_path
+      = link_to new_subject_path do 
+        %i.fa.fa-lightbulb-o
+        Nyt emne
+
     %li
-      = link_to "Ny instruktion", new_instruction_path
+      = link_to new_instruction_path do 
+        %i.fa.fa-file-text
+        Ny instruktion
     %li
-      = link_to "Alle instruktioner", instructions_path
+      = link_to instructions_path do 
+        %i.fa.fa-files-o
+        Alle instruktioner
     %li.divider{:role => "separator"}
     %li.dropdown-header How to 
     %li
-      = link_to "How to", how_to_index_path, class: "dropdown-item"
-        
+      = link_to how_to_index_path do 
+        %i.fa.fa-question
+        How to        
 
 %li
-  = link_to "Nyt ugeskema", new_grade_scheduel_path(@current_user.grade_id), class: "nav-link"
+  = link_to new_grade_scheduel_path(@current_user.grade_id) do 
+    %i.fa.fa-calendar
+    Nyt ugeskema
 
 

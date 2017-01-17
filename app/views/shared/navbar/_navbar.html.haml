@@ -11,7 +11,9 @@
       %ul.nav.navbar-nav
         
         %li
-          = link_to "skift bruger", current_user_index_path, class: "nav-link"
+          = link_to current_user_index_path do 
+            %i.fa.fa-user-o
+            Skift Bruger
 
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", }
@@ -20,10 +22,15 @@
             %span.caret
           %ul.dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}  
             %li
-              = link_to "Mine beskeder", user_messages_path(@current_user)
+              = link_to user_messages_path(@current_user) do 
+                %i.fa.fa-envelope-open-o
+                Mine beskeder
 
             %li
-              = link_to "Ny besked", new_user_message_path(@current_user)
+              = link_to new_user_message_path(@current_user) do 
+                %i.fa.fa-telegram
+                Ny besked
+
 
         = render "shared/navbar/navbar_links/" + @current_user_name
     / /.nav-collapse
