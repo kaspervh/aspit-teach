@@ -1,4 +1,10 @@
 %li
-  = link_to "Elever", users_path, class: "nav-link"
+  = link_to users_path do 
+    %i.fa.fa-graduation-cap
+    Elever
 %li
-  = link_to "Ulæste dagbogs notater (#{@current_user.unread_diary_entries_count})", user_diary_entries_path(@current_user), class: "nav-link "
+  = link_to user_diary_entries_path(@current_user) do 
+    %i.fa.fa-book
+    Ulæste dagbogs notater (
+    = @current_user.unread_diary_entries_count
+    )
