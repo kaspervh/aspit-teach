@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103073914) do
+ActiveRecord::Schema.define(version: 20170122201832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,12 +53,6 @@ ActiveRecord::Schema.define(version: 20170103073914) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "grade_scheduels", force: :cascade do |t|
-    t.integer  "week_number"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "grades", force: :cascade do |t|
     t.string   "name"
     t.integer  "school_id"
@@ -74,17 +68,6 @@ ActiveRecord::Schema.define(version: 20170103073914) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "message_users", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "message_id"
-    t.boolean  "read"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "type"
-    t.index ["message_id"], name: "index_message_users_on_message_id", using: :btree
-    t.index ["user_id"], name: "index_message_users_on_user_id", using: :btree
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at",   null: false
@@ -92,14 +75,15 @@ ActiveRecord::Schema.define(version: 20170103073914) do
     t.string   "message_type"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+  create_table "readers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.boolean  "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "type"
+    t.index ["message_id"], name: "index_readers_on_message_id", using: :btree
+    t.index ["user_id"], name: "index_readers_on_user_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -120,16 +104,6 @@ ActiveRecord::Schema.define(version: 20170103073914) do
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "student_goals", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "score"
-    t.boolean  "closed"
-    t.integer  "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,4 +1,4 @@
-class MessageUser < ApplicationRecord
+class Reader < ApplicationRecord
   belongs_to :user
   belongs_to :message
   has_many :users

@@ -11,8 +11,8 @@ class DiaryEntriesController < ApplicationController
   # GET /diary_entries/1
   # GET /diary_entries/1.json
    def show
-     if message_user = @diary_entry.message_users.where(user_id: @current_user.id).first
-      message_user.mark_as_read
+     if reader = @diary_entry.readers.where(user_id: @current_user.id).first
+      reader.mark_as_read
      else
       ""
      end

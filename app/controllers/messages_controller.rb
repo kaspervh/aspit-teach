@@ -8,8 +8,8 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
-    if message_user = @message.message_users.find_by(user_id: @current_user.id)
-      message_user.mark_as_read
+    if reader = @message.readers.find_by(user_id: @current_user.id)
+      reader.mark_as_read
      else
       flash[:error] = "Du har ikke adgang til beskeden"
       redirect_to root_path
@@ -28,14 +28,14 @@ class MessagesController < ApplicationController
 
   def create
     params.permit!   
-    message_user_ids = params[:message][:message_user_ids]
-    params[:message].delete :message_user_ids
+    reader_ids = params[:message][:reader_ids]
+    params[:message].delete :reader_ids
     @message = Message.new(message_params)
     respond_to do |format|
       if @message.save 
-        message_user_ids.reject!{|s| s.empty?}
-        message_user_ids.map!{|s| s.to_i} - [0]
-        @message.create_readers(@current_user, message_user_ids)
+        reader_ids.reject!{|s| s.empty?}
+        reader_ids.map!{|s| s.to_i} - [0]
+        @message.create_readers(@current_user, reader_ids)
         format.html { redirect_to user_messages_path(@current_user), notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
