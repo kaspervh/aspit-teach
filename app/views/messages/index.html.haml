@@ -15,7 +15,7 @@
           %td= message.created_at
         %strong
           %td= message.author_name
-        %td= link_to 'Vis', user_message_path(:user_id, :id), class: "btn btn-default"
+        %td= link_to 'Vis', user_message_path(:user_id, message.id), class: "btn btn-default"
         %td
           - if message.read?(@current_user)
             %i.fa.fa-check-square.fa-4{"aria-hidden" => "true"}

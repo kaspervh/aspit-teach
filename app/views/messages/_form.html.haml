@@ -13,9 +13,9 @@
   %strong 
     Vælg modtagere
 .box
-  = f.association :message_users, collection: @school_students, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container', label: "Skole elever"
+  = f.association :readers, collection: @school_students, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container', label: "Skole elever"
 .box
-  = f.association :message_users, collection: @everyone_else, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container', label: "Fagligt personale"
+  = f.association :readers, collection: @everyone_else, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container', label: "Fagligt personale"
 
 .button-box
   = f.submit "Send", class: "btn btn-default"

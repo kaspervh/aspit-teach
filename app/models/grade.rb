@@ -19,7 +19,7 @@ class Grade < ApplicationRecord
     users.joins(:role).where(roles: {name: "Teacher"})
   end
 
-  def message_users(current_user)
+  def readers(current_user)
     ids = teachers.ids + admins.ids + mentors.ids
     return ids
   end

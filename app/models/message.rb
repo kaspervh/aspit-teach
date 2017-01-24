@@ -1,13 +1,13 @@
 class Message < ApplicationRecord
   #include Bootsy::Container
 
-  has_many :message_users, dependent: :destroy
-  has_many :users, through: :message_users
+  has_many :readers, dependent: :destroy
+  has_many :users, through: :readers
   has_many :comments, as: :commentable 
 
   def create_diary_entry_users(current_user)
     if grade = current_user.grade
-      teacher_id = grade.message_users(current_user)
+      teacher_id = grade.readers(current_user)
       #mentor_id = School.message_users(current_user)
       user_ids = teacher_id #+ mentor_id
       create_readers(current_user, user_ids)
@@ -24,8 +24,8 @@ class Message < ApplicationRecord
   end
 
   def read?(current_user)
-    if message_user = message_users.find_by(user_id: current_user.id)
-     return message_user.read
+   if reader = readers.find_by(user_id: current_user.id)
+     return reader.read
     end
     false
   end
@@ -34,12 +34,12 @@ class Message < ApplicationRecord
     reader_ids << current_user.id
     reader_ids.each do |reader_id|
       read = (current_user.id == reader_id)
-      message_user = MessageUser.new(
+      reader = Reader.new(
         user_id: reader_id, 
         message_id: id,
         read: read
       )
-      if message_user.save
+      if reader.save
 
       else
         # TODO: error handling
