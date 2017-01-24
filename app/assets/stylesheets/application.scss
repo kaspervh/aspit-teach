@@ -4,6 +4,7 @@
 
 body{
   background-color: #2c2c2c;
+  height: 100%;
 }
 
 navbar{
@@ -12,18 +13,17 @@ navbar{
 
 .fa-check-square-o {
   height: 50px;
-  with: 50px;
+  width: 50px;
 }
 
 
 .wrapper{
- background-color: white;
- margin-top: 3%; 
- margin-left: 10%;
- margin-right: 10%;
- padding: 1%;
- height: 100%;
- border-radius: 5px;
+  background-color: white;
+  margin-top: 3%; 
+  
+  padding: 1%;
+  border-radius: 5px;
+
 }
 
 .btn{
