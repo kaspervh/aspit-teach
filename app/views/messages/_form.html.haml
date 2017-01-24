@@ -16,6 +16,6 @@
   = f.association :readers, collection: @school_students, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container', label: "Skole elever"
 .box
   = f.association :readers, collection: @everyone_else, as: :check_boxes, label_method: :username, value_method: :id,  item_wrapper_class: 'checkbox_container', label: "Fagligt personale"
-
-= f.submit "Send", class: "btn btn-default"
+.button-box
+  = f.submit "Send", class: "btn btn-default"
 %br/
