@@ -8,3 +8,31 @@
     Ulæste dagbogs notater (
     = @current_user.unread_diary_entries_count
     )
+
+%li.dropdown
+  %a.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", }
+    .fa.fa-files-o
+    Instruktioner
+    %span.caret
+  %ul.dropdown-menu
+    %li
+      = link_to new_subject_path do 
+        %i.fa.fa-lightbulb-o
+        Nyt emne
+
+    %li
+      = link_to new_instruction_path do 
+        %i.fa.fa-file-text
+        Ny instruktion
+
+    %li
+      = link_to instructions_path do 
+        %i.fa.fa-files-o
+        Alle instruktioner
+
+    %li.divider{:role => "separator"}
+    %li.dropdown-header How to 
+    %li
+      = link_to  how_to_index_path do 
+        %i.fa.fa-question
+        How to 
