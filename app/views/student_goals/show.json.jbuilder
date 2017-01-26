@@ -1,0 +1,1 @@
+json.partial! "student_goals/student_goal", student_goal: @student_goal

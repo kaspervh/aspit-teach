@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   resources :comments
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   resources :users do 
     resources :messages
     resources :diary_entries
+    resources :student_goals
   end 
 
   

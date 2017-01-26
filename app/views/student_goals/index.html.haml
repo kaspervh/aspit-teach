@@ -1,0 +1,24 @@
+%h1 Listing student_goals
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Elev
+      %th Mål
+      %th Start score
+      %th Optioner
+     
+
+  %tbody
+    - @student_goals.each do |student_goal|
+      %tr
+        %td= student_goal.user_id
+        %td= student_goal.goal_name
+        %td= student_goal.beginning_score
+        %td= student_goal.resolved
+        %td= link_to 'Vis', student_goal
+        
+
+%br
+
+= link_to 'Ny elev målsætning', new_user_student_goal_path, class: "btn btn-default"
