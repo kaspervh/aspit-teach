@@ -1,0 +1,2 @@
+class ModuleEvaluation < ApplicationRecord
+end

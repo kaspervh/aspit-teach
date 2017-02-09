@@ -7,7 +7,7 @@
       %ul
         - instruction.errors.full_messages.each do |message|
           %li= message
-  = f.input :subject_id, collection: @subjects, label_method: :name, value_method: :id,label: "Emne:", include_blank: false, selected: @instruction.subject_id
+  = f.input :subject_id, collection: @subjects , label_method: :name, value_method: :id,label: "Emne:", include_blank: false, selected: @instruction.subject_id
   = f.input :name, label: "Instruktions navn:"
   = f.bootsy_area :content, label: "Indhold:", rows: 20, cols: 125
   %br/

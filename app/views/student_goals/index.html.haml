@@ -1,24 +1,33 @@
 %h1 Listing student_goals
 
-%table.table.table-hover
-  %thead
+%table.table
+  %thead.thead-inverse
     %tr
-      %th Elev
-      %th Mål
-      %th Start score
+      %th User
+      %th Navn På målet
+      %th Mål type
+      %th Score
+      %th Målet nået?
       %th Optioner
-     
+      %th
+      %th
 
   %tbody
     - @student_goals.each do |student_goal|
       %tr
         %td= student_goal.user_id
         %td= student_goal.goal_name
-        %td= student_goal.beginning_score
-        %td= student_goal.resolved
-        %td= link_to 'Vis', student_goal
+        %td= student_goal.goal_type
+        %td= student_goal.score
+        %td
+          - if student_goal.resolved
+            %i.fa.fa-check-square.fa-4{"aria-hidden" => "true"}
+          - else
+            %i.fa.fa-minus-square.fa-4{"aria-hidden" => "true"}
+        %td= link_to "Vis", user_student_goal_path(:user_id, student_goal.id), class: "btn btn-default"
+        %td= link_to "Evaluer", new_student_goal_student_goal_evaluation_path(student_goal), class: "btn btn-default"
         
-
+        
 %br
 
-= link_to 'Ny elev målsætning', new_user_student_goal_path, class: "btn btn-default"
+= link_to 'New Student goal', new_user_student_goal_path, class: "btn btn-default"

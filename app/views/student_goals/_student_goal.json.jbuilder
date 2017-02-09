@@ -1,2 +1,2 @@
-json.extract! student_goal, :id, :user_id, :goal_name, :main_goal, :learning_goal, :fufillment_tools, :fufillment_criteria, :beginning_score, :resolved, :created_at, :updated_at
+json.extract! student_goal, :id, :user_id, :goal_name, :goal_type, :goal_description, :goal_achievment_tools, :success_chriteria, :score, :resolved, :created_at, :updated_at
 json.url student_goal_url(student_goal, format: :json)

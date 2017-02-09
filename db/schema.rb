@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125123707) do
+ActiveRecord::Schema.define(version: 20170207173015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,14 +75,23 @@ ActiveRecord::Schema.define(version: 20170125123707) do
     t.string   "message_type"
   end
 
+  create_table "module_evaluations", force: :cascade do |t|
+    t.string   "module_name"
+    t.integer  "module_score"
+    t.text     "evaluation_explanation"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "readers", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "message_id"
     t.boolean  "read"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "type"
-    t.index ["message_id"], name: "index_readers_on_message_id", using: :btree
+    t.integer  "student_goal_id"
+    t.integer  "readerble_id"
+    t.string   "readerble_type"
     t.index ["user_id"], name: "index_readers_on_user_id", using: :btree
   end
 
@@ -108,17 +117,26 @@ ActiveRecord::Schema.define(version: 20170125123707) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "student_goal_evaluations", force: :cascade do |t|
+    t.integer  "student_goal_id"
+    t.text     "goal_evaluation"
+    t.text     "achivement_tools_evaluation"
+    t.integer  "intermediate_score"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "student_goals", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "goal_name"
-    t.text     "main_goal"
-    t.text     "learning_goal"
-    t.text     "fufillment_tools"
-    t.text     "fufillment_criteria"
-    t.integer  "beginning_score"
+    t.string   "goal_type"
+    t.text     "goal_description"
+    t.text     "goal_achievment_tools"
+    t.text     "success_chriteria"
+    t.integer  "score"
     t.boolean  "resolved"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "subjects", force: :cascade do |t|

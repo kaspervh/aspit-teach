@@ -5,8 +5,8 @@ class User < ApplicationRecord
   belongs_to :grade
 
   has_many :readers
-  has_many :messages, through: :readers
-  has_many :student_goals, through: :readers
+  has_many :messages, through: :readers, source: :readerble, source_type: "Message"
+  has_many :student_goals, through: :readers, source: :readerble, source_type: "StudentGoal"
 
   def super_admin?
     role.name == "Super admin"

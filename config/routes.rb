@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  
+  
+  resources :module_evaluations
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   resources :comments
@@ -17,7 +20,10 @@ Rails.application.routes.draw do
     resources :student_goals
   end 
 
-  
+  resources :student_goals, only: [] do 
+    resources :student_goal_evaluations
+  end
+
   resources :grades do 
     resources :scheduels
   end

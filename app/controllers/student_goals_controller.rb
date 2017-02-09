@@ -15,21 +15,23 @@ class StudentGoalsController < ApplicationController
   # GET /student_goals/new
   def new
     @student_goal = StudentGoal.new
+    @student = User.joins(:role).where(roles: {name: "Student"})
   end
 
   # GET /student_goals/1/edit
   def edit
+    @student = User.joins(:role).where(roles: {name: "Student"})
   end
 
   # POST /student_goals
   # POST /student_goals.json
   def create
     @student_goal = StudentGoal.new(student_goal_params)
-
+    student_id = params[:student_goal][:user_id]
     respond_to do |format|
       if @student_goal.save
-        @student_goal.create_student_goal_readers(@current_user)
-        format.html { redirect_to @student_goal, notice: 'Student goal was successfully created.' }
+        @student_goal.create_student_goal_reader(@current_user, student_id)
+        format.html { redirect_to root_path, notice: 'Målsætningen er oprettet.' }
         format.json { render :show, status: :created, location: @student_goal }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class StudentGoalsController < ApplicationController
   def update
     respond_to do |format|
       if @student_goal.update(student_goal_params)
-        format.html { redirect_to @student_goal, notice: 'Student goal was successfully updated.' }
+        format.html { redirect_to @student_goal, notice: 'Målsætningen er opdateret.' }
         format.json { render :show, status: :ok, location: @student_goal }
       else
         format.html { render :edit }
@@ -57,7 +59,7 @@ class StudentGoalsController < ApplicationController
   def destroy
     @student_goal.destroy
     respond_to do |format|
-      format.html { redirect_to student_goals_url, notice: 'Student goal was successfully destroyed.' }
+      format.html { redirect_to student_goals_url, notice: 'Målsætningen er slettet.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +72,6 @@ class StudentGoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_goal_params
-      params.require(:student_goal).permit(:user_id, :goal_name, :main_goal, :learning_goal, :fufillment_tools, :fufillment_criteria, :beginning_score, :resolved)
+      params.require(:student_goal).permit(:user_id, :goal_name, :goal_type, :goal_description, :goal_achievment_tools, :success_chriteria, :score, :resolved)
     end
 end

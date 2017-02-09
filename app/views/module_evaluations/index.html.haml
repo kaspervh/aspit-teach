@@ -1,0 +1,23 @@
+%table.table
+  %thead.thead-inverse
+    %tr
+      %th Modul Navn
+      %th Modul score
+      %th Begrundelse
+      %th
+      %th
+      %th
+
+  %tbody
+    - @module_evaluations.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.evaluation_explanation
+        %td= link_to 'Show', module_evaluation
+        %td= link_to 'Edit', edit_module_evaluation_path(module_evaluation)
+        %td= link_to 'Destroy', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Module evaluation', new_module_evaluation_path, class: "btn btn-default"

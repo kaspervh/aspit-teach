@@ -1,0 +1,27 @@
+%h1 Listing student_goal_evaluations
+
+%table
+  %thead
+    %tr
+      %th Student goal
+      %th Goal evaluation
+      %th Achivement tools evaluation
+      %th Intermediate score
+      %th
+      %th
+      %th
+
+  %tbody
+    - @student_goal_evaluations.each do |student_goal_evaluation|
+      %tr
+        %td= student_goal_evaluation.student_goal_id
+        %td= student_goal_evaluation.goal_evaluation
+        %td= student_goal_evaluation.achivement_tools_evaluation
+        %td= student_goal_evaluation.intermediate_score
+        %td= link_to 'Show', student_goal_evaluation
+        %td= link_to 'Edit', edit_student_goal_evaluation_path(student_goal_evaluation)
+        %td= link_to 'Destroy', student_goal_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Student goal evaluation', new_student_goal_evaluation_path

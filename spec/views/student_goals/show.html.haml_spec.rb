@@ -5,11 +5,11 @@ RSpec.describe "student_goals/show", type: :view do
     @student_goal = assign(:student_goal, StudentGoal.create!(
       :user_id => 2,
       :goal_name => "Goal Name",
-      :main_goal => "MyText",
-      :learning_goal => "MyText",
-      :fufillment_tools => "MyText",
-      :fufillment_criteria => "MyText",
-      :beginning_score => 3,
+      :goal_type => "Goal Type",
+      :goal_description => "MyText",
+      :goal_achievment_tools => "MyText",
+      :success_chriteria => "MyText",
+      :score => 3,
       :resolved => false
     ))
   end
@@ -18,7 +18,7 @@ RSpec.describe "student_goals/show", type: :view do
     render
     expect(rendered).to match(/2/)
     expect(rendered).to match(/Goal Name/)
-    expect(rendered).to match(/MyText/)
+    expect(rendered).to match(/Goal Type/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/MyText/)

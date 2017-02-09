@@ -1,22 +1,19 @@
-%p#notice= notice
-
-%p
-  %b Mål navn:
+%h3
   = @student_goal.goal_name
+%br
 %p
-  %b Individuelle faglige, personlige og arbejdsmæssige mål:
-  = @student_goal.main_goal
+  %b Mål:
+  %br
+  = @student_goal.goal_description
 %p
-  %b Læringsmål:
-  = @student_goal.learning_goal
+  %b Hvad kan der gøres for at nå målet:
+  %br
+  = @student_goal.goal_achievment_tools
 %p
-  %b Indhold og undervisningsform (hvad har læreren lavet af individuelle tiltag):
-  = @student_goal.fufillment_tools
+  %b Success kriterie:
+  %br
+  = @student_goal.success_chriteria
 %p
-  %b Opfyldelseskriterium:
-  = @student_goal.fufillment_criteria
-%p
-  %b Start score:
-  = @student_goal.beginning_score
+  %b Score:
+  = @student_goal.score
 
-= link_to 'Tilbage', user_student_goals_path, class: "btn btn-default"

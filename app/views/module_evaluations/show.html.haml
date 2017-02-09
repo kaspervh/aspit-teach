@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Module name:
+  = @module_evaluation.module_name
+%p
+  %b Module score:
+  = @module_evaluation.module_score
+%p
+  %b Evaluation explanation:
+  = @module_evaluation.evaluation_explanation
+
+= link_to 'Edit', edit_module_evaluation_path(@module_evaluation)
+\|
+= link_to 'Back', module_evaluations_path

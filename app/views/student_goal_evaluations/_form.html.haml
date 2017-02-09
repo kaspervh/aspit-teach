@@ -1,0 +1,37 @@
+= simple_form_for [@student_goal, @student_goal_evaluation] do |f|
+  - if @student_goal_evaluation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@student_goal_evaluation.errors.count, "error")} prohibited this student_goal_evaluation from being saved:"
+      %ul
+        - @student_goal_evaluation.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.hidden_field :student_goal_id, value: @student_goal.id
+  .field
+    %strong Mål
+    %br
+    = @student_goal.goal_description
+    %br
+    %button.btn.btn-default{"data-target" => "#goal", "data-toggle" => "collapse", :type => "button", } Evaluer
+    #goal.collapse
+      = f.input :goal_evaluation, as: :text, label: "Mål evaluering -  hvordan er  det gået siden sidst?", input_html:{rows: 15}
+  .field
+    %strong Udviklingsværktøjer/Hvad kan der gøres for at nå målet
+    %br
+    = @student_goal.goal_achievment_tools
+    %br
+    %button.btn.btn-default{"data-target" => "#tools", "data-toggle" => "collapse", :type => "button"} Evaluer
+    #tools.collapse
+      = f.input :achivement_tools_evaluation, as: :text, label: "har værktøjerne virket, hvad kan man gøre anderledes?", input_html:{rows: 15}
+
+  .field
+    %br
+    %strong Succes kriterie
+    %br
+    = @student_goal.success_chriteria
+    %br
+    %br
+    = f.input :intermediate_score, collection: (1..10), as: :radio_buttons, label: "Ny score:"
+  .actions
+    = f.submit 'Gem', class: "btn btn-default"

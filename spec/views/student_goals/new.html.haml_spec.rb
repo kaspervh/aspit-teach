@@ -5,11 +5,11 @@ RSpec.describe "student_goals/new", type: :view do
     assign(:student_goal, StudentGoal.new(
       :user_id => 1,
       :goal_name => "MyString",
-      :main_goal => "MyText",
-      :learning_goal => "MyText",
-      :fufillment_tools => "MyText",
-      :fufillment_criteria => "MyText",
-      :beginning_score => 1,
+      :goal_type => "MyString",
+      :goal_description => "MyText",
+      :goal_achievment_tools => "MyText",
+      :success_chriteria => "MyText",
+      :score => 1,
       :resolved => false
     ))
   end
@@ -23,15 +23,15 @@ RSpec.describe "student_goals/new", type: :view do
 
       assert_select "input#student_goal_goal_name[name=?]", "student_goal[goal_name]"
 
-      assert_select "textarea#student_goal_main_goal[name=?]", "student_goal[main_goal]"
+      assert_select "input#student_goal_goal_type[name=?]", "student_goal[goal_type]"
 
-      assert_select "textarea#student_goal_learning_goal[name=?]", "student_goal[learning_goal]"
+      assert_select "textarea#student_goal_goal_description[name=?]", "student_goal[goal_description]"
 
-      assert_select "textarea#student_goal_fufillment_tools[name=?]", "student_goal[fufillment_tools]"
+      assert_select "textarea#student_goal_goal_achievment_tools[name=?]", "student_goal[goal_achievment_tools]"
 
-      assert_select "textarea#student_goal_fufillment_criteria[name=?]", "student_goal[fufillment_criteria]"
+      assert_select "textarea#student_goal_success_chriteria[name=?]", "student_goal[success_chriteria]"
 
-      assert_select "input#student_goal_beginning_score[name=?]", "student_goal[beginning_score]"
+      assert_select "input#student_goal_score[name=?]", "student_goal[score]"
 
       assert_select "input#student_goal_resolved[name=?]", "student_goal[resolved]"
     end

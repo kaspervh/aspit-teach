@@ -28,7 +28,7 @@ class GradeScheduelsController < ApplicationController
 
     respond_to do |format|
       if @grade_scheduel.save
-        format.html { redirect_to @grade_scheduel, notice: 'Grade scheduel was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Ugeskemaet er gemt.' }
         format.json { render :show, status: :created, location: @grade_scheduel }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class GradeScheduelsController < ApplicationController
   def update
     respond_to do |format|
       if @grade_scheduel.update(grade_scheduel_params)
-        format.html { redirect_to @grade_scheduel, notice: 'Grade scheduel was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Ugeskemaet er opdateret.' }
         format.json { render :show, status: :ok, location: @grade_scheduel }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class GradeScheduelsController < ApplicationController
   def destroy
     @grade_scheduel.destroy
     respond_to do |format|
-      format.html { redirect_to grade_scheduels_url, notice: 'Grade scheduel was successfully destroyed.' }
+      format.html { redirect_to grade_scheduels_url, notice: 'Ugeskemaet er slettet.' }
       format.json { head :no_content }
     end
   end
