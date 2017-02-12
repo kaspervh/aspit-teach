@@ -1,12 +1,17 @@
-%h1 Listing student_goals
+%h1 Elev målsætninger
 
+- score = @student_goals.each{|student_goal| student_goal}
+= line_chart  @student_goals.each{|goal| data = (goal.scores.count)}
+
+ 
 %table.table
   %thead.thead-inverse
     %tr
-      %th User
+      %th Elev
       %th Navn På målet
       %th Mål type
-      %th Score
+      %th Start score
+      %th nuværende score
       %th Målet nået?
       %th Optioner
       %th
@@ -16,9 +21,15 @@
     - @student_goals.each do |student_goal|
       %tr
         %td= student_goal.user_id
-        %td= student_goal.goal_name
+        %td
+          %strong= student_goal.goal_name
         %td= student_goal.goal_type
         %td= student_goal.score
+        %td
+          - if student_goal.student_goal_evaluations.any? 
+            = student_goal.student_goal_evaluations.last.score
+          - else 
+            =student_goal.score
         %td
           - if student_goal.resolved
             %i.fa.fa-check-square.fa-4{"aria-hidden" => "true"}
@@ -30,4 +41,4 @@
         
 %br
 
-= link_to 'New Student goal', new_user_student_goal_path, class: "btn btn-default"
+= link_to 'Ny elev målsætning', new_user_student_goal_path, class: "btn btn-default"

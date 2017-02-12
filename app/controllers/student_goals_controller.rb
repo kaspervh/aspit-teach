@@ -5,6 +5,7 @@ class StudentGoalsController < ApplicationController
   # GET /student_goals.json
   def index
     @student_goals = StudentGoal.all
+    
   end
 
   # GET /student_goals/1

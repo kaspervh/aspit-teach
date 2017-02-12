@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require bootsy
 //= require ckeditor/init
+//= require chartkick
 //= require_tree .

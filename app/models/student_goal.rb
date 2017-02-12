@@ -36,4 +36,16 @@ class StudentGoal < ApplicationRecord
       "Faglig udvikling".to_sym    => "Faglig udvikling"
     }
   end
+
+public
+  def scores
+    scores = []
+    scores << self.score
+    evaluation = self.student_goal_evaluations
+    evaluation.each do |evaluation|
+      scores << evaluation.intermediate_score
+    end 
+    return scores
+  end
+
 end

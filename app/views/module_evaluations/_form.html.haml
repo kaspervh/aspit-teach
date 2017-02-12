@@ -1,4 +1,4 @@
-= form_for @module_evaluation do |f|
+= simple_ form_for @module_evaluation do |f|
   - if @module_evaluation.errors.any?
     #error_explanation
       %h2= "#{pluralize(@module_evaluation.errors.count, "error")} prohibited this module_evaluation from being saved:"
@@ -7,13 +7,10 @@
           %li= msg
 
   .field
-    = f.label :module_name
-    = f.text_field :module_name
+    = f.input :module_name, value: "Vælg modul:"
   .field
-    = f.label :module_score
-    = f.number_field :module_score
+    = f.number_field :module_score, collection: (1..10), as: :radio_buttons, label: "score:" 
   .field
-    = f.label :evaluation_explanation
-    = f.text_area :evaluation_explanation
+    = f.text_area :evaluation_explanation, as: :text, value: "begrundelse for score"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-default
