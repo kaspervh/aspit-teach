@@ -1,7 +1,8 @@
 %h1 Elev målsætninger
 
-- score = @student_goals.each{|student_goal| student_goal}
-= line_chart  @student_goals.each{|goal| data = (goal.scores.count)}
+- score = @student_goals.each{|student_goal| student_goal.scores}
+- date = @student_goals.each{|student_goal| student_goal.dates}
+= line_chart data: @student_goals.map{|goal| goal.scores}
 
  
 %table.table
@@ -35,8 +36,9 @@
             %i.fa.fa-check-square.fa-4{"aria-hidden" => "true"}
           - else
             %i.fa.fa-minus-square.fa-4{"aria-hidden" => "true"}
-        %td= link_to "Vis", user_student_goal_path(:user_id, student_goal.id), class: "btn btn-default"
-        %td= link_to "Evaluer", new_student_goal_student_goal_evaluation_path(student_goal), class: "btn btn-default"
+        %td
+          = link_to "Vis", user_student_goal_path(:user_id, student_goal.id), class: "btn btn-default" 
+          = link_to "Evaluer", new_student_goal_student_goal_evaluation_path(student_goal), class: "btn btn-default"
         
         
 %br

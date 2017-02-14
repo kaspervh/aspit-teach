@@ -11,6 +11,7 @@ class StudentGoalsController < ApplicationController
   # GET /student_goals/1
   # GET /student_goals/1.json
   def show
+    @student_goal_evaluations = @student_goal.student_goal_evaluations.reverse
   end
 
   # GET /student_goals/new

@@ -18,9 +18,10 @@
         %td= student_goal_evaluation.goal_evaluation
         %td= student_goal_evaluation.achivement_tools_evaluation
         %td= student_goal_evaluation.intermediate_score
-        %td= link_to 'Show', student_goal_evaluation
-        %td= link_to 'Edit', edit_student_goal_evaluation_path(student_goal_evaluation)
-        %td= link_to 'Destroy', student_goal_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td
+          = link_to 'Show', student_goal_evaluation
+          = link_to 'Edit', edit_student_goal_evaluation_path(student_goal_evaluation)
+          = link_to 'Destroy', student_goal_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

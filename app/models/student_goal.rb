@@ -37,7 +37,6 @@ class StudentGoal < ApplicationRecord
     }
   end
 
-public
   def scores
     scores = []
     scores << self.score
@@ -46,6 +45,16 @@ public
       scores << evaluation.intermediate_score
     end 
     return scores
+  end
+
+  def dates
+    dates = []
+    dates << self.created_at
+    evaluation = self.student_goal_evaluations
+    evaluation.each do |evaluation|
+      scores << evaluation.created_at
+    end 
+    return dates
   end
 
 end

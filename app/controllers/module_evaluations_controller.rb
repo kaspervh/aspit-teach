@@ -5,6 +5,21 @@ class ModuleEvaluationsController < ApplicationController
   # GET /module_evaluations.json
   def index
     @module_evaluations = ModuleEvaluation.all
+
+    @T0 = @module_evaluations.where(module_name: "Teknik 0")
+    @T1 = @module_evaluations.where(module_name: "Teknik 1")
+    @T2 = @module_evaluations.where(module_name: "Teknik 2")
+    @T3 = @module_evaluations.where(module_name: "Teknik 3")
+
+    @V0 = @module_evaluations.where(module_name: "Visualisering 0")
+    @V1 = @module_evaluations.where(module_name: "Visualisering 1")
+    @V2 = @module_evaluations.where(module_name: "Visualisering 2")
+    @V3 = @module_evaluations.where(module_name: "Visualisering 3")
+
+    @S0 = @module_evaluations.where(module_name: "Softwarekonstruktion 0")
+    @S1 = @module_evaluations.where(module_name: "Softwarekonstruktion 1")
+    @S2 = @module_evaluations.where(module_name: "Softwarekonstruktion 2")
+    @S3 = @module_evaluations.where(module_name: "Softwarekonstruktion 3")
   end
 
   # GET /module_evaluations/1
@@ -15,6 +30,7 @@ class ModuleEvaluationsController < ApplicationController
   # GET /module_evaluations/new
   def new
     @module_evaluation = ModuleEvaluation.new
+    @module_names = @module_evaluation.module_names
   end
 
   # GET /module_evaluations/1/edit
@@ -41,7 +57,7 @@ class ModuleEvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @module_evaluation.update(module_evaluation_params)
-        format.html { redirect_to redirect_to root_path, notice: 'Modul evaluering er blevet opdateret.' }
+        format.html { redirect_to root_path, notice: 'Modul evaluering er blevet opdateret.' }
         format.json { render :show, status: :ok, location: @module_evaluation }
       else
         format.html { render :edit }

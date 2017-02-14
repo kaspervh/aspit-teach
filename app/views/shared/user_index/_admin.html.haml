@@ -16,6 +16,7 @@
         = link_to 'Rediger', edit_user_path(user), class: "btn btn-default"
         = link_to 'Slet', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
         = link_to "Dagbogsnotater", user_diary_entries_path(user_id: user.id), class: "btn btn-default"
+        = link_to "Målsætninger", user_student_goals_path(user_id: user.id), class: "btn btn-default"
   %table.table
     %thead.thead-inverse
       %h3 Lærer

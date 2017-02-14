@@ -1,15 +1,17 @@
 %p#notice= notice
 
 %p
-  %b Module name:
+  %b Modul:
+  %br
   = @module_evaluation.module_name
 %p
-  %b Module score:
+  %b Modul score:
+  %br
   = @module_evaluation.module_score
 %p
-  %b Evaluation explanation:
+  %b Begrundelse for score:
+  %br
   = @module_evaluation.evaluation_explanation
 
-= link_to 'Edit', edit_module_evaluation_path(@module_evaluation)
-\|
-= link_to 'Back', module_evaluations_path
+= link_to 'Rediger', edit_module_evaluation_path(@module_evaluation), class: "btn btn-default"
+

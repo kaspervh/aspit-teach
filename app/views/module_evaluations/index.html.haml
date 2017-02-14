@@ -3,21 +3,133 @@
     %tr
       %th Modul Navn
       %th Modul score
-      %th Begrundelse
-      %th
+      %th Forfatter
+      %th Optioner
       %th
       %th
 
   %tbody
-    - @module_evaluations.each do |module_evaluation|
+    - @T0.each do |module_evaluation|
       %tr
         %td= module_evaluation.module_name
         %td= module_evaluation.module_score
-        %td= module_evaluation.evaluation_explanation
-        %td= link_to 'Show', module_evaluation
-        %td= link_to 'Edit', edit_module_evaluation_path(module_evaluation)
-        %td= link_to 'Destroy', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @T1.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @T2.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @T3.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+
+  %tbody
+    - @V0.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @V1.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @V2.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @V3.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @S0.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @S1.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @S2.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
+  %tbody
+    - @S3.each do |module_evaluation|
+      %tr
+        %td= module_evaluation.module_name
+        %td= module_evaluation.module_score
+        %td= module_evaluation.author 
+        %td
+          = link_to 'Vis', module_evaluation, class: "btn btn-default"
+          = link_to 'Rediger', edit_module_evaluation_path(module_evaluation), class: "btn btn-default"
+          = link_to 'Slet', module_evaluation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default" 
 
 %br
 
-= link_to 'New Module evaluation', new_module_evaluation_path, class: "btn btn-default"
+

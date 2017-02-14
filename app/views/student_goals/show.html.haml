@@ -17,3 +17,38 @@
   %b Score:
   = @student_goal.score
 
+=link_to "Evaluer", new_student_goal_student_goal_evaluation_path(@student_goal), class: "btn btn-default" 
+
+%h3 Evalueringer
+
+- @student_goal_evaluations.each do |evaluation|
+  
+  %strong
+    Dato: 
+  %br 
+  = evaluation.created_at
+ 
+  - if evaluation.goal_evaluation?
+    %br
+    %br
+    %strong
+      Evaluering af målet:
+    %br
+    = evaluation.goal_evaluation
+    
+  - if evaluation.achivement_tools_evaluation?
+    %br
+    %br
+    %strong
+      Evaluering af Udviklingsværktøjer
+    %br
+    = evaluation.achivement_tools_evaluation
+  %br
+  %br
+  %strong
+    Score
+  =evaluation.intermediate_score
+  %br
+  %br
+  %br
+
