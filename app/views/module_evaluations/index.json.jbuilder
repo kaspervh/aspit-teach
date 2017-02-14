@@ -1,0 +1,1 @@
+json.array! @module_evaluations, partial: 'module_evaluations/module_evaluation', as: :module_evaluation

@@ -33,6 +33,8 @@ gem 'ckeditor'
 gem 'haml-rails'
 gem 'bootsy'
 gem 'font-awesome-rails'
+gem 'chartkick'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

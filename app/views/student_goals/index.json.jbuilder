@@ -1,0 +1,1 @@
+json.array! @student_goals, partial: 'student_goals/student_goal', as: :student_goal

@@ -21,4 +21,9 @@ class School < ApplicationRecord
   def teachers_admins_mentors
     teachers + admins + mentors
   end
+
+  def readers(current_user)
+    ids = teachers.ids + admins.ids + mentors.ids
+    return ids
+  end
 end

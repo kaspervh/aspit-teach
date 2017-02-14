@@ -24,8 +24,8 @@
             %td
               %strong= diary_entry.created_at
             %td
-            %td
-              = link_to "Dagbogsnotat", user_diary_entries_path(diary_entry), class: "btn btn-default"
+            %td= link_to "Dagbogsnotat", user_diary_entries_path(diary_entry), class: "btn btn-default"
+
 
   .panel.panel-default
     .panel-heading
@@ -34,10 +34,12 @@
           Mine Målsætninger
     #collapse3.panel-collapse.collapse
       .panel-body
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        - @user_student_goals.each do |goal|
+          %tr 
+            %td
+              %strong= goal.goal_name
+            %td 
+            %td= link_to "Vis", user_student_goal_path(@current_user, goal), class: "btn btn-default"
 
 
   .panel.panel-default

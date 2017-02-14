@@ -1,0 +1,26 @@
+= simple_form_for [@current_user, @student_goal] do |f|
+  - if @student_goal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@student_goal.errors.count, "error")} prohibited this student_goal from being saved:"
+      %ul
+        - @student_goal.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.input :user_id, collection: @student, label_method: :username, value_method: :id,label: "Elev:", include_blank: true
+  .field
+    = f.input :goal_name, label: "Navn på målet:"
+  .field
+    = f.input :goal_type,collection: @student_goal.goal_type_options, include_blank: false, label: "Mål type:"
+  .field
+    = f.input :goal_description, as: :text, label: "Beskrivelse af målet:", input_html:{rows: 15}
+  .field
+    = f.input :goal_achievment_tools, as: :text, label: "Udviklingsværktøjer/Hvad kan der gøres for at nå målet:", input_html:{rows: 15}
+  .field
+    = f.input :success_chriteria, as: :text, label: "succes kriterie:", input_html:{rows: 15}
+  .field
+    = f.input :score, collection: (1..10), as: :radio_buttons, label: "Start score:"
+  .field
+    = f.hidden_field :resolved, value: false
+  .actions
+    = f.submit 'Gem', class: "btn btn-default"

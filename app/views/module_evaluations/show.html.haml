@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Modul:
+  %br
+  = @module_evaluation.module_name
+%p
+  %b Modul score:
+  %br
+  = @module_evaluation.module_score
+%p
+  %b Begrundelse for score:
+  %br
+  = @module_evaluation.evaluation_explanation
+
+= link_to 'Rediger', edit_module_evaluation_path(@module_evaluation), class: "btn btn-default"
+

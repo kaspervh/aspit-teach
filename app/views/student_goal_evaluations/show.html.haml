@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Student goal:
+  = @student_goal_evaluation.student_goal_id
+%p
+  %b Goal evaluation:
+  = @student_goal_evaluation.goal_evaluation
+%p
+  %b Achivement tools evaluation:
+  = @student_goal_evaluation.achivement_tools_evaluation
+%p
+  %b Intermediate score:
+  = @student_goal_evaluation.intermediate_score
+
+= link_to 'Edit', edit_student_goal_evaluation_path(@student_goal_evaluation)
+\|
+= link_to 'Back', student_goal_evaluations_path

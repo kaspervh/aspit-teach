@@ -1,3 +1,4 @@
+// Stude
 %li
   = link_to users_path do 
     %i.fa.fa-graduation-cap
@@ -36,3 +37,11 @@
       = link_to  how_to_index_path do 
         %i.fa.fa-question
         How to 
+
+%li 
+  = link_to new_user_student_goal_path(@current_user) do 
+    %i.fa.fa-line-chart
+    Ny elev målsætning
+%li 
+  = link_to module_evaluations_path do 
+    Modul evalueringer

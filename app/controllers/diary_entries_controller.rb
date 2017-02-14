@@ -36,7 +36,7 @@ class DiaryEntriesController < ApplicationController
     respond_to do |format|
       if @diary_entry.save
         @diary_entry.create_diary_entry_users(@current_user)
-        format.html { redirect_to root_path, notice: 'Diary entry was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Dagbogsnotatet er gemt.' }
         format.json { render :show, status: :created, location: @diary_entry }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class DiaryEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @diary_entry.update(diary_entry_params)
-        format.html { redirect_to @diary_entry, notice: 'Diary entry was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Dagbogsnotatet er redigeret.' }
         format.json { render :show, status: :ok, location: @diary_entry }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class DiaryEntriesController < ApplicationController
   def destroy
     @diary_entry.destroy
     respond_to do |format|
-      format.html { redirect_to diary_entries_url, notice: 'Diary entry was successfully destroyed.' }
+      format.html { redirect_to diary_entries_url, notice: 'Dagbogsnotatet er slettet' }
       format.json { head :no_content }
     end
   end

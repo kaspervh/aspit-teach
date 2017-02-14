@@ -1,0 +1,2 @@
+json.extract! student_goal_evaluation, :id, :student_goal_id, :goal_evaluation, :achivement_tools_evaluation, :intermediate_score, :created_at, :updated_at
+json.url student_goal_evaluation_url(student_goal_evaluation, format: :json)

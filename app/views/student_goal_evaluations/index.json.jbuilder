@@ -1,0 +1,1 @@
+json.array! @student_goal_evaluations, partial: 'student_goal_evaluations/student_goal_evaluation', as: :student_goal_evaluation

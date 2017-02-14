@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
         reader_ids.reject!{|s| s.empty?}
         reader_ids.map!{|s| s.to_i} - [0]
         @message.create_readers(@current_user, reader_ids)
-        format.html { redirect_to user_messages_path(@current_user), notice: 'Message was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Beskeden er gemt.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class MessagesController < ApplicationController
   def update
     respond_to do |format|
       if @message.update(diary_entry_params)
-        format.html { redirect_to @message, notice: 'Diary entry was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Beskeden er opdateret' }
         format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class MessagesController < ApplicationController
   def destroy
     @diary_entry.destroy
     respond_to do |format|
-      format.html { redirect_to diary_entries_url, notice: 'Diary entry was successfully destroyed.' }
+      format.html { redirect_to diary_entries_url, notice: 'Besked er slettet' }
       format.json { head :no_content }
     end
   end
