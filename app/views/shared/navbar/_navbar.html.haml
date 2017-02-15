@@ -10,11 +10,6 @@
     #navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
         
-        %li
-          = link_to current_user_index_path do 
-            %i.fa.fa-user-o
-            Skift Bruger
-
         - if @current_user 
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", }
