@@ -1,8 +1,21 @@
 // Stude
-%li
-  = link_to users_path do 
-    %i.fa.fa-graduation-cap
+%li.dropdown
+  %a.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", }
+    .fa.fa-graduation-cap
     Elever
+    %span.caret
+  %ul.dropdown-menu
+    %li
+      = link_to users_path do 
+        %i.fa.fa-graduation-cap
+        Elever
+
+    %li
+      = link_to new_user_student_goal_path(@current_user) do 
+        %i.fa.fa-line-chart
+        Ny elev målsætning
+        
+
 %li
   = link_to user_diary_entries_path(@current_user) do 
     %i.fa.fa-book
@@ -38,10 +51,6 @@
         %i.fa.fa-question
         How to 
 
-%li 
-  = link_to new_user_student_goal_path(@current_user) do 
-    %i.fa.fa-line-chart
-    Ny elev målsætning
 %li 
   = link_to module_evaluations_path do 
     Modul evalueringer

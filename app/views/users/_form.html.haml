@@ -11,7 +11,9 @@
 
   = f.input :email, label: "Email:"
 
-  = f.input :password_digest, label: "Kodeord:"
+  = f.input :password, label: "Kodeord:"
+
+  = f.input :password_confirmation, label: "Gentag kodeord"
 
   = f.input :role_id, collection: @roles, label_method: :name, value_method: :id, label: "Rolle:", include_blank: false, selected: @user.role_id
 
