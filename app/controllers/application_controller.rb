@@ -3,17 +3,18 @@ class ApplicationController < ActionController::Base
   before_action :current_user
 
   def current_user 
-    ap "Application_controller#current_user"
-    if user_id = session[:user_id]
-      ap user_id
-    @current_user ||= User.joins(:role).find(user_id)
-
-    else 
-    @current_user ||=  User.first
+    ap "Application_controller#current_user"  
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if @current_user
+     ap  @current_user_name = @current_user.role.name.downcase.gsub(" ", "_")
     end
-    @current_user_name = @current_user.role.name.downcase.gsub(" ", "_")
   end
   helper_method :current_user
+
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+
 
 
   def super_admin?

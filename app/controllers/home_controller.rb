@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_filter :authorize
   def index
     @scheduel = @current_user.grade.scheduels.last
     @grade_students = @current_user.grade.students    
