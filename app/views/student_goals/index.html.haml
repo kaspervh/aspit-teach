@@ -1,8 +1,7 @@
 %h1 Elev målsætninger
 
-- score = @student_goals.each{|student_goal| student_goal.scores}
-- date = @student_goals.each{|student_goal| student_goal.dates}
-= line_chart data: @student_goals.map{|goal| goal.scores}
+
+/= line_chart student_goal.graph_data, discrete: true
 
  
 %table.table
@@ -11,8 +10,7 @@
       %th Elev
       %th Navn På målet
       %th Mål type
-      %th Start score
-      %th nuværende score
+      %th Fremskridt
       %th Målet nået?
       %th Optioner
       %th
@@ -25,10 +23,10 @@
         %td
           %strong= student_goal.goal_name
         %td= student_goal.goal_type
-        %td= student_goal.score
         %td
           - if student_goal.student_goal_evaluations.any? 
-            = student_goal.student_goal_evaluations.last.score
+            = line_chart student_goal.graph_data, discrete: true, width: "300px", height: "100px"
+            /= student_goal.student_goal_evaluations.last.score
           - else 
             =student_goal.score
         %td

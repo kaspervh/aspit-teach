@@ -37,24 +37,16 @@ class StudentGoal < ApplicationRecord
     }
   end
 
-  def scores
-    scores = []
-    scores << self.score
-    evaluation = self.student_goal_evaluations
-    evaluation.each do |evaluation|
-      scores << evaluation.intermediate_score
-    end 
-    return scores
-  end
+  def graph_data
+    data = {
+      created_at => score
+    }
 
-  def dates
-    dates = []
-    dates << self.created_at
-    evaluation = self.student_goal_evaluations
-    evaluation.each do |evaluation|
-      scores << evaluation.created_at
+    evaluations = self.student_goal_evaluations
+    evaluations.each do |evaluation|
+      data[evaluation.created_at] = evaluation.intermediate_score
     end 
-    return dates
+    data
   end
 
 end
