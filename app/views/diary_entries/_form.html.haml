@@ -7,6 +7,7 @@
       - diary_entry.errors.full_messages.each do |message|
         %li= message
 = f.hidden_field :message_type, value: "diary_entry"
+= f.hidden_field :user_name, value: @current_user.username
 = f.bootsy_area :content, label: "Indhold", rows:22, cols:140
 %br
 = f.submit "Gem", class: "btn btn-default"

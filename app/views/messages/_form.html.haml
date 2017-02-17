@@ -7,6 +7,7 @@
       - message.errors.full_messages.each do |message|
         %li= message
 = f.hidden_field :message_type, value: "message"
+= f.hidden_field :user_name, value: @current_user.username
 = f.input :content, as: :text, label: "Besked text", input_html:{rows: 15}
 %br/
 %h5

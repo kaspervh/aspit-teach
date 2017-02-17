@@ -14,7 +14,7 @@
         %strong
           %td= message.created_at
         %strong
-          %td= message.author_name
+          %td= message.user_name
         %td= link_to 'Vis', user_message_path(:user_id, message.id), class: "btn btn-default"
         %td
           - if message.read?(@current_user)

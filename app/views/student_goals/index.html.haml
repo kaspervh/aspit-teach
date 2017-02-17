@@ -19,7 +19,7 @@
   %tbody
     - @student_goals.each do |student_goal|
       %tr
-        %td= student_goal.user_id
+        %td= student_goal.author_name
         %td
           %strong= student_goal.goal_name
         %td= student_goal.goal_type
