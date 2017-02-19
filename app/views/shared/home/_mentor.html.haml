@@ -1,27 +1,4 @@
-#accordion.panel-group
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse1"}
-          Mine elever
-    #collapse1.panel-collapse.collapse.in
-      .panel-body
-        - @grade_students.each do |student|
-          %table
-            %tr
-              %td
-                %h5= student.username
-              %td
-              %td= link_to "Dagbogsnotater ", user_diary_entries_path(student.id), class: " btn btn-default"
-              %td= link_to "Målsætninger", user_student_goals_path(student.id), class: "btn btn-default"
-  
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse2"}
-          Mine beskeder
-    #collapse2.panel-collapse.collapse
-      .panel-body
-        
-  
-  
+= render "shared/home/dashboard_scheduel" 
+= render "shared/home/dashboard_messages" 
+= render "shared/home/dashboard_students"
+= render "shared/home/dashboard_chat"

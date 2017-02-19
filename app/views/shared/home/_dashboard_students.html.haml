@@ -1,0 +1,22 @@
+.dashboard-students
+  .dashboard-titlebox
+    %h3 Elever  
+  %table.table
+    %thead.thead-inverse
+      %tr
+        %th Navn
+        %th Nye dagbogsnotater
+        %th Nye målsætninger
+      
+    %tbody
+      - @grade_students.each do |student|
+        %tr
+          %td 
+            = student.username
+          %td 
+            = @current_user.unread_diary_entries_count
+          %td 
+            = @current_user.unread_student_goals_count
+
+  = link_to "Dagbogsnotater ", user_diary_entries_path(@current_user.id), class: " btn btn-default"
+  = link_to "Målsætninger", user_student_goals_path(@current_user.id), class: "btn btn-default"

@@ -1,0 +1,5 @@
+.dashboard-subjects
+  .dashboard-titlebox
+    %h3 Emner
+  - @subjects.each do |subject|
+    = link_to subject.name.upcase, subject, class: "btn btn-default"
