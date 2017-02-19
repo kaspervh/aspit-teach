@@ -1,41 +1,5 @@
-#accordion.panel-group
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse1"}
-          Ugeskema
-    #collapse1.panel-collapse.collapse.in
-      .panel-body
-        - if @scheduel.nil?
-          = "upload skoleskema for klassen her"
-        - else
-          = image_tag @scheduel.image.url(:slide)
-        = link_to "Nyt ugeskema", new_grade_scheduel_path(@current_user.grade_id), class: "btn btn-default"
-
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse2"}
-          Mine elever
-    #collapse2.panel-collapse.collapse
-      .panel-body
-        - @grade_students.each do |student|
-          %table
-            %tr
-              %td
-                %h5= student.username
-              %td
-              %td= link_to "Dagbogsnotater", user_diary_entries_path(student.id), class: "btn btn-default"
-              %td= link_to "Målsætninger", user_student_goals_path(student.id), class: "btn btn-default"
-
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse3"}
-          Mine beskeder
-    #collapse3.panel-collapse.collapse
-      .panel-body
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+= render "shared/home/dashboard_scheduel" 
+= render "shared/home/dashboard_messages" 
+= render "shared/home/dashboard_students"
+= render "shared/home/dashboard_chat"
+= render "shared/home/dashboard_subjects" 

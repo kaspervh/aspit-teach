@@ -7,6 +7,6 @@ class HomeController < ApplicationController
     @user_diary_entries = @current_user.messages.where(message_type: "diary_entry")
     @user_messages = @current_user.messages.where(message_type: "message")
     @user_student_goals = @current_user.student_goals
-
+    @subjects = Subject.all
   end
 end

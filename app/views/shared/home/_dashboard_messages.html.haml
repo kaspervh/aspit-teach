@@ -1,0 +1,16 @@
+.dashboard-messages
+  .dashboard-titlebox
+    %h3 Dagens beskeder
+  %table.table
+    %thead.thead-inverse
+      %tr
+        %th Fra
+        %th Optioner
+      
+    %tbody
+      - @user_messages.each do |message|
+        %tr
+          %td 
+            = message.user_name
+          %td
+            = link_to "Vis", user_message_path(@current_user.id, message.id), class: "btn btn-default"

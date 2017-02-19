@@ -1,0 +1,9 @@
+.dashboard-scheduel
+  .dashboard-titlebox
+    %h3 Ugeskema
+  - if @scheduel.nil?
+    = "upload skoleskema for klassen her "
+    = link_to "Nyt ugeskema ", new_grade_scheduel_path(@current_user.grade_id), class: "btn btn-default"
+  - else
+    = image_tag @scheduel.image.url(:slide)
+    = link_to "Nyt ugeskema ", new_grade_scheduel_path(@current_user.grade_id), class: "btn btn-default"

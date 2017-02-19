@@ -37,6 +37,10 @@ class User < ApplicationRecord
     unread_messages.count
   end
 
+  def unread_student_goals_count
+    unread_student_goals.count
+  end
+
   def unread_diary_entries
     messages.where(message_type: "diary_entry").joins(:readers).where(readers: {read: false})
   end
@@ -51,6 +55,10 @@ class User < ApplicationRecord
 
   def read_messages
     messages.joins(:readers).where(readers: {read: true})
+  end
+
+  def unread_student_goals
+    student_goals.joins(:readers).where(readers: {read: false})
   end
 
 end
