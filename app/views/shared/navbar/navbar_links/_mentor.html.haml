@@ -20,7 +20,7 @@
   = link_to user_diary_entries_path(@current_user) do 
     %i.fa.fa-book
     Ulæste dagbogs notater (
-    = @current_user.unread_diary_entries.count
+    = @current_user.unread_diary_entries_count
     )
 
 %li.dropdown

@@ -30,7 +30,11 @@ class User < ApplicationRecord
   end
 
   def unread_diary_entries_count
-    unread_diary_entries.count        
+    unread_diary_entries.count
+  end
+
+  def diary_entries
+    messages.where(message_type: "diary_entry")
   end
 
   def unread_messages_count
@@ -42,23 +46,15 @@ class User < ApplicationRecord
   end
 
   def unread_diary_entries
-    messages.where(message_type: "diary_entry").joins(:readers).where(readers: {read: false})
-  end
-
-  def read_diary_entries
-    messages.joins(:readers).where(readers: {read: true})
+    messages.where(message_type: "diary_entry").includes(:readers).where(readers: {read: false})
   end
 
   def unread_messages
-    messages.where(message_type: "message").joins(:readers).where(readers: {read: false})
+    messages.where(message_type: "message").includes(:readers).where(readers: {read: false})
   end 
 
-  def read_messages
-    messages.joins(:readers).where(readers: {read: true})
-  end
-
   def unread_student_goals
-    student_goals.joins(:readers).where(readers: {read: false})
+    student_goals.includes(:readers).where(readers: {read: false})
   end
 
 end
